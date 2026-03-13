@@ -116,19 +116,62 @@
             font-size: 0.9em;
             color: #666;
         }
+
+        /* Header & Logo Styling */
+        .logo-img {
+            max-height: 40px;
+            vertical-align: middle;
+            margin-right: 15px;
+        }
+
+        header {
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        /* Navigation Styles */
+        .main-nav {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 15px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: #007bff;
+            color: white;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>MindfulTabs Support & FAQ</h1>
+        <header>
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <img src="logo.png" alt="MindfulTabs Logo" class="logo-img">
+                <h1>Support & FAQ</h1>
+            </div>
+        </header>
         <p>Thank you for using MindfulTabs! We're here to help you with any questions, issues, or feedback you might
             have.</p>
 
         <h2>How to Get Support:</h2>
         <ul>
             <li><strong>Email:</strong> For general inquiries or technical support, please email us at <a
-                    href="mailto:hello@loopstates.com">hello@loopstates.com</a>.</li>
+                    href="mailto:support@loopstates.com">support@loopstates.com</a>.</li>
         </ul>
 
         <p>We aim to respond to all inquiries within 24-48 hours.</p>
@@ -173,9 +216,14 @@
 
         <div class="faq-item">
             <h3>Q: What if I have a problem or suggestion?</h3>
-            <p>A: Please contact us at <a href="mailto:hello@loopstates.com">hello@loopstates.com</a> for any questions
+            <p>A: Please contact us at <a href="mailto:support@loopstates.com">support@loopstates.com</a> for any questions
                 or suggestions.</p>
         </div>
+        <nav class="main-nav">
+            <a href="../index.html" class="nav-link">← All Products</a>
+            <a href="index.html" class="nav-link">MindfulTabs Documentation</a>
+            <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+        </nav>
     </div>
     <div class="footer">
         <p>&copy; <span id="currentYear"></span> Loopstates. All rights reserved.</p>
