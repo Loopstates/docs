@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loopstates Support | documentation & Help</title>
-    <meta name="description" content="Official support documentation for Loopstates products. Find guides for Mindful Tabs and Swift Search.">
-    
+    <meta name="description"
+        content="Official support documentation for Loopstates products. Find guides for Mindful Tabs and Swift Search.">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
             --primary: #6366f1;
@@ -50,7 +55,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: 
+            background:
                 radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
                 radial-gradient(circle at 80% 70%, rgba(14, 165, 233, 0.15) 0%, transparent 40%);
         }
@@ -118,7 +123,9 @@
             animation: fadeInUp 1s ease-out backwards;
         }
 
-        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
 
         .card:hover {
             transform: translateY(-10px);
@@ -202,21 +209,41 @@
         }
 
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 640px) {
-            h1 { font-size: 2.25rem; }
-            .subtitle { font-size: 1.1rem; }
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="bg-gradient"></div>
 
@@ -248,7 +275,8 @@
         </div>
 
         <footer>
-            <p>Need help? Reach out to <a href="mailto:support@loopstates.com" style="color: var(--primary); text-decoration: none;">support@loopstates.com</a></p>
+            <p>Need help? Reach out to <a href="mailto:support@loopstates.com"
+                    style="color: var(--primary); text-decoration: none;">support@loopstates.com</a></p>
             <div style="margin-top: 1rem; opacity: 0.5;">
                 &copy; <span id="year"></span> Loopstates. All rights reserved.
             </div>
@@ -259,4 +287,5 @@
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
+
 </html>
