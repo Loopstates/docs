@@ -1,0 +1,19 @@
+# Loopstates Documentation Index
+
+This directory contains the official support documentation for Loopstates products. It is designed to help users and AI agents navigate our suite of productivity and search tools.
+
+## Main Entry Point
+- [Home](index.html): Product selection landing page.
+
+## MindfulTabs
+MindfulTabs is a browser extension designed to help you manage tabs effectively and reduce digital clutter.
+- [Product Home](mindful-tabs/index.html)
+- [Support & FAQ](mindful-tabs/support.html)
+- [Privacy Policy](mindful-tabs/privacy-policy.html)
+
+## Swift Search (Typesense)
+Swift Search provides lightning-fast, highly accurate search for WordPress sites, powered by Typesense.
+- [Product Home](swift-search-typesense/index.html)
+- [Support & FAQ](swift-search-typesense/support.html)
+- [Privacy Policy](swift-search-typesense/privacy.html)
+- [Terms of Service](swift-search-typesense/terms.html)
