@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Doctor - Surgical Precision for Your Traffic</title>
+    <meta name="description"
+        content="Stop bleeding traffic. URL Doctor is the next-gen smart link platform with device-aware routing, deep analytics, and affiliate controls.">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="assets/images/logo.png" alt="URL Doctor" class="logo-img">
+                <span>URL Doctor</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#logic">Smart Routing</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#affiliates">Affiliates</a>
+                <a href="#pricing">Pricing</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/login" class="btn-text">Log In</a>
+                <a href="/register" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="pulse"></span>
+                    Free onboarding for users switching from paid URL shorteners
+                </div>
+                <h1>Stop Bleeding&nbsp;<span class="text-gradient">Traffic.</span><br>Start Optimizing&nbsp;Flow.</h1>
+                <p class="hero-sub">
+                    Legacy shorteners are killing your conversion rates.
+                    Switch to the only platform with <strong>surgical device targeting</strong>,
+                    <strong>smart routing</strong>, and <strong>real-time diagnostics</strong>.
+                </p>
+                <div class="hero-cta">
+                    <a href="/register" class="btn btn-primary btn-lg">
+                        Start Operating Free
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="#demo" class="btn btn-secondary btn-lg">
+                        <i data-lucide="play"></i>
+                        See Live Demo
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">99.99%</span>
+                        <span class="stat-label">Uptime SLA</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">0ms</span>
+                        <span class="stat-label">Redirect Latency</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">100%</span>
+                        <span class="stat-label">Data Ownership</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="traffic-simulation">
+                    <!-- Connecting Lines (SVG) -->
+                    <svg class="connection-lines" viewBox="0 0 500 380">
+                        <!-- Main Trunk: Extends to Router Left (90px) -->
+                        <path class="path-trunk" d="M10,190 L90,190" />
+
+                        <!-- Branch iOS: Starts after Router (90 + 70 = 160) to Dest Edge (315) -->
+                        <path class="path-branch path-ios" d="M160,190 C240,190 240,55 315,55" />
+
+                        <!-- Branch Android -->
+                        <path class="path-branch path-android" d="M160,190 C240,190 240,190 315,190" />
+
+                        <!-- Branch Web -->
+                        <path class="path-branch path-web" d="M160,190 C240,190 240,325 315,325" />
+                    </svg>
+
+                    <!-- Particles (Animated via CSS) -->
+                    <div class="particle p-ios"></div>
+                    <div class="particle p-android"></div>
+                    <div class="particle p-web"></div>
+
+                    <!-- Source Node -->
+                    <div class="node source-node">
+                        <div class="node-glow"></div>
+                        <div class="node-icon"><i data-lucide="users"></i></div>
+                        <div class="node-label">Traffic In</div>
+                    </div>
+
+                    <!-- CPU Router Node -->
+                    <div class="node router-node">
+                        <div class="router-spinner"></div>
+                        <div class="node-icon"><i data-lucide="cpu"></i></div>
+                        <div class="node-label">Smart Route</div>
+                    </div>
+
+                    <!-- Destination Nodes -->
+                    <div class="dest-stack">
+                        <div class="dest-card dest-ios">
+                            <div class="dest-icon"><i data-lucide="apple"></i></div>
+                            <div class="dest-info">
+                                <span class="dest-title">App Store</span>
+                                <span class="dest-meta">iOS Detected</span>
+                            </div>
+                        </div>
+                        <div class="dest-card dest-android">
+                            <div class="dest-icon"><i data-lucide="smartphone"></i></div>
+                            <div class="dest-info">
+                                <span class="dest-title">Play Store</span>
+                                <span class="dest-meta">Android Detected</span>
+                            </div>
+                        </div>
+                        <div class="dest-card dest-web">
+                            <div class="dest-icon"><i data-lucide="monitor"></i></div>
+                            <div class="dest-info">
+                                <span class="dest-title">Website</span>
+                                <span class="dest-meta">Desktop Detected</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-glow"></div>
+    </header>
+
+    <!-- Features Grid (Overview) -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header reveal fade-up">
+                <h2>Surgical Tools for Growth</h2>
+                <p>Everything you need to optimize your digital footprint.</p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Feature 1: Smart Routing -->
+                <div class="bento-card card-routing reveal fade-up">
+                    <div class="card-bg">
+                        <img src="assets/images/routing.jpg" alt="Smart Routing Traffic">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-icon"><i data-lucide="git-branch"></i></div>
+                        <h3>Smart Routing Logic</h3>
+                        <p>Don't send iPhone users to a web login. Send them directly to the App Store. Define rules
+                            based
+                            on OS, Device, or Location.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Analytics -->
+                <div class="bento-card card-analytics reveal fade-up delay-100">
+                    <div class="card-bg">
+                        <img src="assets/images/analytics.jpg" alt="Analytics Dashboard">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-icon"><i data-lucide="bar-chart-2"></i></div>
+                        <h3>Forensic Analytics</h3>
+                        <p>Go beyond "clicks". See conversion rates, drop-off points, and detailed browser fingerprints.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 3: QR Codes -->
+                <div class="bento-card card-qr reveal fade-up delay-200">
+                    <div class="card-bg">
+                        <img src="assets/images/qr.jpg" alt="Dynamic QR Codes">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-icon"><i data-lucide="qr-code"></i></div>
+                        <h3>Dynamic QR Codes</h3>
+                        <p>Print once, change destination forever. Fully branded with your logo and colors.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 4: Affiliate -->
+                <div class="bento-card card-affiliate reveal fade-up delay-300">
+                    <div class="card-bg">
+                        <img src="assets/images/affiliate.jpg" alt="Affiliate Network">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-icon"><i data-lucide="users"></i></div>
+                        <h3>Affiliate Command Center</h3>
+                        <p>Turn users into partners. Auto-generate referral links and track commissions in real-time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Routing Deep Dive -->
+    <section id="logic" class="logic-section">
+        <div class="container">
+            <div class="section-header text-center reveal fade-up">
+                <div class="badge-blue">The Engine</div>
+                <h2>Programmable Traffic Control</h2>
+                <p>Define exact rules for where your users land. <span class="text-gradient">No code required.</span>
+                </p>
+            </div>
+
+            <div class="logic-grid">
+                <!-- Device Logic -->
+                <div class="logic-card reveal fade-up">
+                    <div class="logic-icon"><i data-lucide="smartphone"></i></div>
+                    <h3>Device & OS Targeting</h3>
+                    <p>Route users based on their specific hardware. Perfect for App downloads.</p>
+                    <div class="logic-example">
+                        <div class="rule">
+                            <span class="if">IF</span> <strong>iOS</strong> <span class="then">THEN</span> <span
+                                class="dest">App Store</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Geo Logic -->
+                <div class="logic-card reveal fade-up delay-100">
+                    <div class="logic-icon"><i data-lucide="globe"></i></div>
+                    <h3>Geo-Fencing</h3>
+                    <p>Show relevant content based on user location. Comply with local laws.</p>
+                    <div class="logic-example">
+                        <div class="rule">
+                            <span class="if">IF</span> <strong>USA</strong> <span class="then">THEN</span> <span
+                                class="dest">/en-us</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Time Logic -->
+                <div class="logic-card reveal fade-up delay-200">
+                    <div class="logic-icon"><i data-lucide="clock"></i></div>
+                    <h3>Time-Based Routing</h3>
+                    <p>Expire links automatically or rotate offers based on time of day.</p>
+                    <div class="logic-example">
+                        <div class="rule">
+                            <span class="if">IF</span> <strong>Weekend</strong> <span class="then">THEN</span> <span
+                                class="dest">Offer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Split Testing -->
+                <div class="logic-card feature-highlight reveal fade-up">
+                    <div class="logic-icon"><i data-lucide="flask-conical"></i></div>
+                    <h3>A/B Split Testing</h3>
+                    <p>Optimize conversion by splitting traffic between multiple destinations randomly.</p>
+                    <div class="logic-example">
+                        <div class="rule">
+                            <span class="if">50%</span> <strong>A</strong> <span class="dest">Blue</span> | <span
+                                class="if">50%</span> <strong>B</strong> <span class="dest">Red</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech/Bot -->
+                <div class="logic-card reveal fade-up delay-100">
+                    <div class="logic-icon"><i data-lucide="bot"></i></div>
+                    <h3>Bot Filtration</h3>
+                    <p>Block scrapers and spiders from skewing your analytics data.</p>
+                    <div class="logic-example">
+                        <div class="rule">
+                            <span class="if">IF</span> <strong>Bot</strong> <span class="then">THEN</span> <span
+                                class="dest">Block Request</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Language -->
+                <div class="logic-card reveal fade-up delay-200">
+                    <div class="logic-icon"><i data-lucide="languages"></i></div>
+                    <h3>Language Detection</h3>
+                    <p>Route based on the browser's preferred language setting.</p>
+                    <div class="logic-example">
+                        <div class="rule">
+                            <span class="if">IF</span> <strong>Spanish</strong> <span class="then">THEN</span> <span
+                                class="dest">/es</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Referral Logic -->
+                <div class="logic-card reveal fade-up">
+                    <div class="logic-icon"><i data-lucide="arrow-left-right"></i></div>
+                    <h3>Referrer Routing</h3>
+                    <p>Change destination based on where the user came from (Instagram, TikTok).</p>
+                    <div class="logic-example">
+                        <div class="rule">
+                            <span class="if">IF</span> <strong>Instagram</strong> <span class="then">THEN</span> <span
+                                class="dest">/bio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UTM Logic -->
+                <div class="logic-card reveal fade-up delay-100">
+                    <div class="logic-icon"><i data-lucide="tag"></i></div>
+                    <h3>UTM Parameter Logic</h3>
+                    <p>Trigger special offers if specific UTM tags are present in the URL.</p>
+                    <div class="logic-example">
+                        <div class="rule">
+                            <span class="if">IF</span> <strong>utm_src=email</strong> <span class="then">THEN</span>
+                            <span class="dest">/promo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User History -->
+                <div class="logic-card reveal fade-up delay-200">
+                    <div class="logic-icon"><i data-lucide="history"></i></div>
+                    <h3>User History</h3>
+                    <p>Show different content to returning users vs first-time visitors.</p>
+                    <div class="logic-example">
+                        <div class="rule">
+                            <span class="if">IF</span> <strong>Visits > 5</strong> <span class="then">THEN</span> <span
+                                class="dest">VIP Page</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IP Reputation -->
+                <div class="logic-card reveal fade-up">
+                    <div class="logic-icon"><i data-lucide="shield-alert"></i></div>
+                    <h3>IP Shield</h3>
+                    <p>Automatically block traffic from known VPNs, Proxies, or malicious IPs.</p>
+                    <div class="logic-example">
+                        <div class="rule">
+                            <span class="if">IF</span> <strong>Risk > 80</strong> <span class="then">THEN</span> <span
+                                class="dest">Captcha</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Self Healing -->
+                <div class="logic-card reveal fade-up delay-100">
+                    <div class="logic-icon"><i data-lucide="stethoscope"></i></div>
+                    <h3>Self-Healing Links</h3>
+                    <p>If the destination 404s, we instantly route to a safe fallback.</p>
+                    <div class="logic-example">
+                        <div class="rule">
+                            <span class="if">IF</span> <strong>404 Error</strong> <span class="then">THEN</span> <span
+                                class="dest">Backup URL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expiring Links -->
+                <div class="logic-card reveal fade-up delay-200">
+                    <div class="logic-icon"><i data-lucide="hourglass"></i></div>
+                    <h3>Expiring Links</h3>
+                    <p>Set a "Self-Destruct" timer or a max click limit for offers.</p>
+                    <div class="logic-example">
+                        <div class="rule">
+                            <span class="if">IF</span> <strong>Date > Nov 1</strong> <span class="then">THEN</span>
+                            <span class="dest">Expired</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer text-center reveal fade-up delay-300" style="margin-top: 40px; opacity: 0.6;">
+                <p>...and we are continuously adding more.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affiliate Deep Dive -->
+    <section id="affiliates" class="affiliate-section">
+        <div class="container">
+            <div class="block-grid">
+                <div class="block-content reveal slide-right">
+                    <div class="icon-box icon-green"><i data-lucide="users"></i></div>
+                    <div class="badge-green">For Growth Teams</div>
+                    <h2>Affiliate Command Center</h2>
+                    <h3>Turn your users into your marketing team.</h3>
+                    <p>Stop manually creating tracking links. Invite influencers, partners, or employees to share your
+                        product, and track every single cent of revenue they generate.</p>
+
+                    <ul class="feature-list">
+                        <li>
+                            <div class="check"><i data-lucide="copy"></i></div>
+                            <div>
+                                <strong>Auto-Generated Links:</strong> Every partner receives a unique, branded smart
+                                link instantly upon joining.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check"><i data-lucide="dollar-sign"></i></div>
+                            <div>
+                                <strong>Real-Time Commissions:</strong> Track earnings per user, per click, or per
+                                conversion event.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check"><i data-lucide="upload-cloud"></i></div>
+                            <div>
+                                <strong>Bulk Management:</strong> Upload a CSV to invite 1,000 partners in a single
+                                click.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block-visual reveal slide-left">
+                    <div class="table-mockup">
+                        <div class="mockup-header">
+                            Live Partner Revenue
+                            <div class="mockup-dot"></div>
+                        </div>
+                        <div class="table-header">
+                            <span>Partner</span>
+                            <span>Clicks</span>
+                            <span>Revenue</span>
+                            <span>Status</span>
+                        </div>
+                        <div class="table-row" onclick="toggleRow(this)">
+                            <span class="row-user"><img src="https://ui-avatars.com/api/?name=Alex&background=random"
+                                    class="avatar"> @tech_alex</span>
+                            <span>12,402</span>
+                            <span class="text-green">$4,250.00</span>
+                            <span class="pill-active">Active</span>
+                        </div>
+                        <div class="row-details">
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="label">Top Source</span>
+                                    <span class="value"><i data-lucide="youtube"></i> YouTube</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Conversion Rate</span>
+                                    <span class="value">4.2%</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Last Payout</span>
+                                    <span class="value">2 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-row" onclick="toggleRow(this)">
+                            <span class="row-user"><img src="https://ui-avatars.com/api/?name=Sarah&background=random"
+                                    class="avatar"> @sarah_vlog</span>
+                            <span>8,200</span>
+                            <span class="text-green">$1,420.50</span>
+                            <span class="pill-active">Active</span>
+                        </div>
+                        <div class="row-details">
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="label">Top Source</span>
+                                    <span class="value"><i data-lucide="instagram"></i> Instagram</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Conversion Rate</span>
+                                    <span class="value">2.8%</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Last Payout</span>
+                                    <span class="value">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campaign Management -->
+    <section id="campaigns" class="campaign-section">
+        <div class="container">
+            <div class="block-grid reverse">
+                <div class="block-content reveal slide-left">
+                    <div class="icon-box icon-purple"><i data-lucide="folder-open"></i></div>
+                    <div class="badge-purple">Organization</div>
+                    <h2>Campaign Taxonomy</h2>
+                    <h3>Stop drowning in a sea of unorganized links.</h3>
+                    <p>Spreadsheets are dead. Organize your thousands of links into clean, collaborative folders with
+                        integrated performance reporting.</p>
+
+                    <ul class="feature-list">
+                        <li>
+                            <div class="check"><i data-lucide="folder"></i></div>
+                            <div>
+                                <strong>Smart Folders:</strong> Group links by Client, Quarter, or Channel. Archive old
+                                campaigns with one click.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check"><i data-lucide="tag"></i></div>
+                            <div>
+                                <strong>Bulk Tagging:</strong> Apply tags like "Black Friday" or "Social" to measure
+                                aggregate performance across 500 links instantly.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block-visual reveal slide-right">
+                    <div class="folder-mockup">
+                        <div class="folder-header">
+                            <i data-lucide="folder-open"></i> / Campaigns / Q4_Holiday
+                        </div>
+
+                        <!-- Folder Item 1 -->
+                        <div class="folder-item" onclick="toggleFolder(this)">
+                            <div class="f-icon"><i data-lucide="link"></i></div>
+                            <div class="f-info">
+                                <div class="f-name">Black Friday Main</div>
+                                <div class="f-meta">Created 2 days ago • @josh</div>
+                            </div>
+                            <div class="f-stat">24k Clicks</div>
+                            <div class="f-trend text-green">+12%</div>
+                        </div>
+                        <div class="folder-details">
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="label">Top Referrer</span>
+                                    <span class="value"><i data-lucide="facebook"></i> Facebook</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Bounce Rate</span>
+                                    <span class="value">32%</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Conversion</span>
+                                    <span class="value">2.4%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Folder Item 2 -->
+                        <div class="folder-item" onclick="toggleFolder(this)">
+                            <div class="f-icon"><i data-lucide="link"></i></div>
+                            <div class="f-info">
+                                <div class="f-name">Cyber Monday Teaser</div>
+                                <div class="f-meta">Created 1 week ago • @sarah</div>
+                            </div>
+                            <div class="f-stat">52k Clicks</div>
+                            <div class="f-trend text-green">+48%</div>
+                        </div>
+                        <div class="folder-details">
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="label">Top Referrer</span>
+                                    <span class="value"><i data-lucide="mail"></i> Newsletter</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Bounce Rate</span>
+                                    <span class="value">18%</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Conversion</span>
+                                    <span class="value">5.1%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Master Analytics -->
+    <section id="analytics" class="analytics-section">
+        <div class="container">
+            <div class="block-grid">
+                <div class="block-content reveal slide-right">
+                    <div class="icon-box icon-cyan"><i data-lucide="activity"></i></div>
+                    <div class="badge-cyan">Business Intelligence</div>
+                    <h2>Data-Driven Decisions</h2>
+                    <h3>X-Ray vision for your traffic flow.</h3>
+                    <p>Stop guessing why your campaigns are failing. Get surgical insights into every click, device, and
+                        conversion event in real-time.</p>
+
+                    <ul class="feature-list">
+                        <li>
+                            <div class="check"><i data-lucide="map"></i></div>
+                            <div>
+                                <strong>Geographic Heatmaps:</strong> See exactly where your users are coming from
+                                worldwide.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check"><i data-lucide="monitor-smartphone"></i></div>
+                            <div>
+                                <strong>Device Fingerprinting:</strong> Detailed breakdown of OS (iOS 17 vs 16), Browser
+                                version, and Device type.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check"><i data-lucide="target"></i></div>
+                            <div>
+                                <strong>Conversion Tracking:</strong> Fire pixels or postbacks when a user actually buys
+                                or installs, not just when they click.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block-visual reveal slide-left">
+                    <div class="dashboard-mockup">
+                        <!-- Chart Header -->
+                        <div class="chart-header">
+                            <div class="chart-title">Global Traffic Volume</div>
+                            <div class="chart-tabs">
+                                <span class="active" onclick="switchChart('24h', this)">24h</span>
+                                <span onclick="switchChart('7d', this)">7d</span>
+                                <span onclick="switchChart('30d', this)">30d</span>
+                            </div>
+                        </div>
+
+                        <!-- Chart Area (CSS Mock) -->
+                        <div class="chart-area">
+                            <div class="chart-grid-lines">
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                            </div>
+                            <!-- SVG Curve -->
+                            <svg viewBox="0 0 300 100" class="chart-svg">
+                                <path id="chart-path"
+                                    d="M0,80 C50,80 50,40 100,50 C150,60 150,20 200,30 C250,40 250,10 300,20"
+                                    fill="none" stroke="#06b6d4" stroke-width="3" />
+                                <area />
+                            </svg>
+                            <div class="chart-tooltip">
+                                <div class="tooltip-val">2,401 Clicks</div>
+                                <div class="tooltip-time">10:42 AM</div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Stats Row -->
+                        <div class="mini-stats">
+                            <div class="ms-item">
+                                <div class="ms-label">Top Location</div>
+                                <div class="ms-value"><i data-lucide="flag"></i> USA (42%)</div>
+                            </div>
+                            <div class="ms-item">
+                                <div class="ms-label">Top OS</div>
+                                <div class="ms-value"><i data-lucide="smartphone"></i> iOS (66%)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Testimonials -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header text-center reveal fade-up">
+                <h2>Trusted by Operators</h2>
+                <p>See why high-volume marketers are switching to URL Doctor.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Review 1 -->
+                <div class="testimonial-card reveal fade-up">
+                    <div class="quote-icon"><i data-lucide="quote"></i></div>
+                    <p class="review-text">
+                        "The device targeting alone increased our app install rate by 34% in the first week. It's not
+                        just a shortener, it's a conversion tool."
+                    </p>
+                    <div class="reviewer">
+                        <img src="https://ui-avatars.com/api/?name=Marcus+R&background=random" class="reviewer-img">
+                        <div class="reviewer-info">
+                            <div class="r-name">Marcus R.</div>
+                            <div class="r-role">Growth Lead</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="testimonial-card reveal fade-up delay-100">
+                    <div class="quote-icon"><i data-lucide="quote"></i></div>
+                    <p class="review-text">
+                        "Finally, an affiliate system that doesn't suck. I onboarded 50 partners in 10 minutes and the
+                        data analytics are a lifesaver."
+                    </p>
+                    <div class="reviewer">
+                        <img src="https://ui-avatars.com/api/?name=Jessica+L&background=random" class="reviewer-img">
+                        <div class="reviewer-info">
+                            <div class="r-name">Jessica L.</div>
+                            <div class="r-role">Marketing Director</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="testimonial-card reveal fade-up delay-200">
+                    <div class="quote-icon"><i data-lucide="quote"></i></div>
+                    <p class="review-text">
+                        "I was using three different tools for links, QR codes, and bio pages. URL Doctor replaced them
+                        all for half the price. Insane value."
+                    </p>
+                    <div class="reviewer">
+                        <img src="https://ui-avatars.com/api/?name=David+K&background=random" class="reviewer-img">
+                        <div class="reviewer-info">
+                            <div class="r-name">David K.</div>
+                            <div class="r-role">Agency Owner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Pricing Plans -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="section-header text-center reveal fade-up">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Start for free, scale as you grow. No hidden fees.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card reveal fade-up">
+                    <div class="plan-header">
+                        <div class="plan-name">Free</div>
+                        <div class="plan-price">
+                            <span class="price-val">$0</span>
+                            <span class="price-period">/mo</span>
+                        </div>
+                        <p>Perfect for side projects and hobbyists.</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i data-lucide="check"></i> 5 Links / Month</li>
+                        <li><i data-lucide="check"></i> Limited Smart Routing</li>
+                        <li><i data-lucide="check"></i> Unlimited QR Generation</li>
+                        <li><i data-lucide="check"></i> 7-Day Analytics History</li>
+                        <li><i data-lucide="check"></i> Standard Support</li>
+                    </ul>
+                    <div class="btn-block">
+                        <a href="/register" class="btn btn-secondary w-full">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card popular reveal fade-up delay-100">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <div class="plan-name">Pro</div>
+                        <div class="plan-price">
+                            <span class="price-val">$29</span>
+                            <span class="price-period">/mo</span>
+                        </div>
+                        <p>For serious marketers and creators.</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i data-lucide="check"></i> 500 Links / Month</li>
+                        <li><i data-lucide="check"></i> Advanced Smart Routing</li>
+                        <li><i data-lucide="check"></i> Unlimited Customizable QR</li>
+                        <li><i data-lucide="check"></i> 30-Day Analytics History</li>
+                        <li><i data-lucide="check"></i> Priority Support</li>
+                    </ul>
+                    <div class="btn-block">
+                        <a href="/register?plan=pro" class="btn btn-primary w-full">Start Free Trial</a>
+                    </div>
+                </div>
+
+                <!-- Business Plan -->
+                <div class="pricing-card business reveal fade-up delay-200">
+                    <div class="plan-header">
+                        <div class="plan-name">Business</div>
+                        <div class="plan-price">
+                            <span class="price-val">$99</span>
+                            <span class="price-period">/mo</span>
+                        </div>
+                        <p>For agencies and high-volume teams.</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i data-lucide="check"></i> 5,000 Links / Month</li>
+                        <li><i data-lucide="check"></i> Advanced Smart Routing</li>
+                        <li><i data-lucide="check"></i> Unlimited Self Branded QR</li>
+                        <li><i data-lucide="check"></i> 90-Day Analytics History</li>
+                        <li><i data-lucide="check"></i> API Access & Custom Domains</li>
+                    </ul>
+                    <div class="btn-block">
+                        <a href="/register?plan=business" class="btn btn-secondary w-full">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <!-- Comparison -->
+    <section id="comparison" class="comparison-section">
+        <div class="container">
+            <div class="section-header text-center reveal fade-up">
+                <h2>The Fossil vs. The Future</h2>
+                <p>Stop living in the past. Upgrade your entire stack.</p>
+            </div>
+
+            <div class="battle-grid">
+                <!-- The Fossil -->
+                <div class="battle-card fossil reveal slide-right">
+                    <h3><i data-lucide="skull"></i> The Old Way</h3>
+                    <ul class="stack-list">
+                        <li class="stack-item">
+                            <span class="stack-name">Bitly (Growth)</span>
+                            <span class="stack-cost">$29/mo</span>
+                        </li>
+                        <li class="stack-item">
+                            <span class="stack-name">Wecantrack (Medium)</span>
+                            <span class="stack-cost">€129/mo</span>
+                        </li>
+                        <li class="stack-item">
+                            <span class="stack-name">Rebrandly (Professional)</span>
+                            <span class="stack-cost">$22/mo</span>
+                        </li>
+                        <li class="stack-item">
+                            <span class="stack-name">Spreadsheets (Pain)</span>
+                            <span class="stack-cost">Priceless</span>
+                        </li>
+                    </ul>
+                    <div class="total-cost">
+                        <span>Monthly Cost</span>
+                        <strong>$202.00+</strong>
+                    </div>
+                </div>
+
+                <!-- VS Badge -->
+                <div class="vs-badge reveal scale-up delay-200">VS</div>
+
+                <!-- The Future -->
+                <div class="battle-card future reveal slide-left">
+                    <h3><i data-lucide="zap"></i> URL Doctor</h3>
+                    <div class="feature-grid-mini">
+                        <div class="feature-mini">
+                            <i data-lucide="link"></i>
+                            <span>Smart Links</span>
+                        </div>
+                        <div class="feature-mini">
+                            <i data-lucide="qr-code"></i>
+                            <span>Dynamic QR</span>
+                        </div>
+                        <div class="feature-mini">
+                            <i data-lucide="layout-grid"></i>
+                            <span>Campaigns</span>
+                        </div>
+                        <div class="feature-mini">
+                            <i data-lucide="users"></i>
+                            <span>Affiliates</span>
+                        </div>
+                    </div>
+                    <div class="future-cost">
+                        <span>Total Cost</span>
+                        <strong class="text-gradient">$29 Only</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: FAQ -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header text-center reveal fade-up">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about operating with URL Doctor.</p>
+            </div>
+
+            <div class="faq-grid">
+                <!-- 1. Custom Domain -->
+                <div class="faq-item reveal fade-up">
+                    <details>
+                        <summary>
+                            <span class="q-text">Can I use my own custom domain?</span>
+                            <i data-lucide="chevron-down" class="toggle-icon"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            Absolutely. Even on our lower tiers, you can connect your own branded domain (e.g.,
+                            link.yourbrand.com) to build trust and authority.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 2. Broken URL (404) -->
+                <div class="faq-item reveal fade-up delay-100">
+                    <details>
+                        <summary>
+                            <span class="q-text">What happens if a destination URL breaks (404)?</span>
+                            <i data-lucide="chevron-down" class="toggle-icon"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            Our "Self-Healing" technology detects the error and instantly redirects traffic to a safe
+                            fallback URL you define, so you never waste money on broken ads.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 3. Affiliate Tracking -->
+                <div class="faq-item reveal fade-up delay-200">
+                    <details>
+                        <summary>
+                            <span class="q-text">How is this different from standard affiliate tracking?</span>
+                            <i data-lucide="chevron-down" class="toggle-icon"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            We give you full control. You can update destination URLs after you've sent them to
+                            influencers. Plus, our real-time analytics show you exactly which partner is driving
+                            revenue, not just clicks.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 4. Expiring Links -->
+                <div class="faq-item reveal fade-up delay-300">
+                    <details>
+                        <summary>
+                            <span class="q-text">Can I expire a link after a specific date?</span>
+                            <i data-lucide="chevron-down" class="toggle-icon"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            Yes. Perfect for limited-time offers. You can set a link to expire on "Black Friday at
+                            Midnight" and automatically redirect late clicks to a "Sorry, you missed it" page.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 5. Data Privacy -->
+                <div class="faq-item reveal fade-up">
+                    <details>
+                        <summary>
+                            <span class="q-text">Do you sell my click data to third parties?</span>
+                            <i data-lucide="chevron-down" class="toggle-icon"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            Never. Unlike free shorteners, you own 100% of your data. We are a privacy-first platform
+                            designed for businesses, not data brokers.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 6. Bot Control -->
+                <div class="faq-item reveal fade-up delay-100">
+                    <details>
+                        <summary>
+                            <span class="q-text">How do you stop bots from skewing my analytics?</span>
+                            <i data-lucide="chevron-down" class="toggle-icon"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            Our "IP Shield" automatically filters out known scrapers, bots, and crawlers, ensuring your
+                            conversion data is accurate and you aren't paying for fake clicks.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 7. API -->
+                <div class="faq-item reveal fade-up delay-200">
+                    <details>
+                        <summary>
+                            <span class="q-text">Do you have an API for developers?</span>
+                            <i data-lucide="chevron-down" class="toggle-icon"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            Yes. Everything you can do in the dashboard, you can do via our REST API. Automate link
+                            creation, retrieve analytics, and manage domains programmatically.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 8. Mobile App -->
+                <div class="faq-item reveal fade-up delay-300">
+                    <details>
+                        <summary>
+                            <span class="q-text">Do you have a mobile app?</span>
+                            <i data-lucide="chevron-down" class="toggle-icon"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            We are working hard to bring more convenience to your pocket. A dedicated iOS and Android
+                            app is on our roadmap for Q4, allowing you to create and track links on the go.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 9. Smart Routing Configs -->
+                <div class="faq-item reveal fade-up">
+                    <details>
+                        <summary>
+                            <span class="q-text">How many smart routing configurations do you have?</span>
+                            <i data-lucide="chevron-down" class="toggle-icon"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            We currently support over 12 distinct logic types (Device, Geo, Time, Language, etc.) as
+                            shown in the "Smart Routing" section above, and we are continuously adding more based on
+                            user feedback.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 10. Support -->
+                <div class="faq-item reveal fade-up delay-100">
+                    <details>
+                        <summary>
+                            <span class="q-text">What kind of support do you offer?</span>
+                            <i data-lucide="chevron-down" class="toggle-icon"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            We take support seriously. All users get access to our comprehensive help center and email
+                            support. Pro and Business plans include priority 24/7 chat support and a dedicated account
+                            manager for complex setups.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 11. Stop Paying -->
+                <div class="faq-item reveal fade-up delay-200">
+                    <details>
+                        <summary>
+                            <span class="q-text">What happens to my links if I stop paying?</span>
+                            <i data-lucide="chevron-down" class="toggle-icon"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            Your links stay active forever. You simply lose access to advanced features like "Smart
+                            Routing" and historical analytics. We never break your links until you completely migrate to
+                            something else and confirm us.
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="faq-cta text-center reveal fade-up delay-400">
+                <p>Still have questions?</p>
+                <a href="mailto:support@urldoctor.com" class="btn btn-secondary">Contact Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Migration Offer -->
+    <section class="offer-section">
+        <div class="container">
+            <div class="offer-card reveal scale-up">
+                <div class="offer-content">
+                    <div class="offer-tag">LIMITED TIME MIGRATION OFFER</div>
+                    <h2>Stuck in a contract? We'll buy you out.</h2>
+                    <p>Show us your receipt from any paid URL shortener, and we'll credit you <strong>3 Months of URL
+                            Doctor Business Plan</strong> for free.</p>
+                    <div class="offer-features">
+                        <span><i data-lucide="check"></i> No Data Loss Import</span>
+                        <span><i data-lucide="check"></i> Priority Onboarding</span>
+                        <span><i data-lucide="check"></i> Concierge Setup</span>
+                    </div>
+                    <a href="/register?offer=migration" class="btn btn-white btn-lg">Claim Your Free Upgrade</a>
+                    <p class="offer-disclaimer">* Valid for new accounts only. Manual verification required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Footer -->
+    <footer class="footer">
+        <div class="footer-watermark">Loopstates</div>
+        <div class="container text-center">
+            <h2 class="reveal fade-up">Ready to operate?</h2>
+            <p class="reveal fade-up delay-100">Join 10,000+ smart marketers optimizing their traffic today.</p>
+            <a href="/register" class="btn btn-primary btn-xl reveal fade-up delay-200">Get Started for Free</a>
+
+            <div class="footer-bottom">
+                <div class="copyright">&copy; 2026 Loopstates Corporation. All rights reserved.</div>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Status</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Multi-Step Migration Modal -->
+    <div id="migration-modal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close"><i data-lucide="x"></i></button>
+
+            <div class="modal-header">
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <h3>Migration Offer Application</h3>
+            </div>
+
+            <div class="modal-body">
+                <!-- Step 1: Subscription Status -->
+                <div class="modal-step active" data-step="1">
+                    <h4>Do you have an active subscription with another provider?</h4>
+                    <div class="radio-group">
+                        <label class="radio-card">
+                            <input type="radio" name="has_subscription" value="yes">
+                            <span class="radio-content">
+                                <span class="radio-title">Yes, I have an active plan</span>
+                                <span class="radio-desc">I can provide a receipt/invoice.</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="has_subscription" value="no">
+                            <span class="radio-content">
+                                <span class="radio-title">No, I'm on a free plan</span>
+                                <span class="radio-desc">This offer is for paid switchers only.</span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn btn-primary btn-next" disabled>Next Step</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Current Provider -->
+                <div class="modal-step" data-step="2">
+                    <h4>Which provider are you moving from?</h4>
+                    <div class="radio-group compact">
+                        <label class="radio-option">
+                            <input type="radio" name="provider" value="bitly">
+                            <span>Bitly</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="provider" value="rebrandly">
+                            <span>Rebrandly</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="provider" value="tinyurl">
+                            <span>TinyURL</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="provider" value="bl-ink">
+                            <span>BL.INK</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="provider" value="other">
+                            <span>Other</span>
+                        </label>
+                    </div>
+                    <div id="provider-other-group" class="input-group hidden">
+                        <input type="text" id="provider-other" placeholder="Enter provider name">
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn btn-secondary btn-back">Back</button>
+                        <button class="btn btn-primary btn-next" disabled>Next Step</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Features Used -->
+                <div class="modal-step" data-step="3">
+                    <h4>Which features do you use most?</h4>
+                    <p class="step-sub">Select all that apply.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="features" value="api">
+                            <span>API Access</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="features" value="custom_domains">
+                            <span>Custom Domains</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="features" value="qr_codes">
+                            <span>QR Codes</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="features" value="analytics">
+                            <span>Deep Analytics</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="features" value="other">
+                            <span>Other</span>
+                        </label>
+                    </div>
+                    <div id="features-other-group" class="input-group hidden">
+                        <input type="text" id="features-other" placeholder="Specify other features">
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn btn-secondary btn-back">Back</button>
+                        <button class="btn btn-primary btn-next" disabled>Next Step</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Reason for Switching -->
+                <div class="modal-step" data-step="4">
+                    <h4>Why are you switching to URL Doctor?</h4>
+                    <textarea id="reason" rows="4"
+                        placeholder="e.g. Better pricing, device targeting features, support issues..."></textarea>
+                    <div class="step-actions">
+                        <button class="btn btn-secondary btn-back">Back</button>
+                        <button class="btn btn-primary btn-next" disabled>Next Step</button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Contact Info -->
+                <div class="modal-step" data-step="5">
+                    <h4>Where should we send your upgrade details?</h4>
+                    <p class="step-sub">We'll verify your receipt later via email.</p>
+
+                    <div class="input-group">
+                        <input type="text" id="contact-name" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="contact-email" placeholder="Work Email" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" id="contact-phone" placeholder="Phone Number (Optional)">
+                    </div>
+
+                    <div class="step-actions">
+                        <button class="btn btn-secondary btn-back">Back</button>
+                        <button class="btn btn-primary btn-next" disabled>Next Step</button>
+                    </div>
+                </div>
+
+                <!-- Step 6: Referral Source -->
+                <div class="modal-step" data-step="6">
+                    <h4>How did you hear about us?</h4>
+                    <div class="radio-group compact">
+                        <label class="radio-option">
+                            <input type="radio" name="referral" value="google">
+                            <span>Google Search</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="referral" value="twitter">
+                            <span>Twitter / X</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="referral" value="linkedin">
+                            <span>LinkedIn</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="referral" value="friend">
+                            <span>Friend / Colleague</span>
+                        </label>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn btn-secondary btn-back">Back</button>
+                        <button class="btn btn-primary btn-submit" disabled>Submit Application</button>
+                    </div>
+                </div>
+
+                <!-- Success Step -->
+                <div class="modal-step" data-step="success">
+                    <div class="success-content">
+                        <div class="success-icon"><i data-lucide="check-circle"></i></div>
+                        <h4>Application Received!</h4>
+                        <p>We've received your migration request. Our team will verify your invoice and enable your 3
+                            free months within 24 hours.</p>
+                        <a href="/register" class="btn btn-primary">Create Your Account Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
