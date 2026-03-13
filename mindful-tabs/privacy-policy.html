@@ -136,10 +136,11 @@
         /* Navigation */
         .main-nav {
             margin-top: 3rem;
-            padding-top: 2rem;
+            padding: 1.25rem 2rem;
             border-top: 1px solid #e2e8f0;
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 2rem;
             flex-wrap: wrap;
         }
@@ -152,23 +153,76 @@
             transition: color 0.2s;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            line-height: normal;
         }
 
         .nav-link:hover {
             color: var(--primary);
         }
 
+        /* Standardized Footer */
         footer {
-            margin-top: 3rem;
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid #e2e8f0;
             text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .footer-logo:hover {
+            opacity: 0.8;
+        }
+
+        .footer-logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .footer-logo span {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--text);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
             color: var(--text-muted);
+            text-decoration: none;
             font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.85rem;
         }
 
         @media (max-width: 640px) {
             .glass-panel { padding: 2rem 1.5rem; }
             h1 { font-size: 1.75rem; }
+            .main-nav { gap: 1rem; }
+            .footer-links { gap: 1rem; flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -221,7 +275,15 @@
         </div>
 
         <footer>
-            <p>&copy; <span id="currentYear"></span> Loopstates. All rights reserved.</p>
+            <a href="https://loopstates.com" class="footer-logo">
+                <img src="../loopstates-logo.png" alt="Loopstates Logo">
+            </a>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="support.html">Support</a>
+                <a href="mailto:support@loopstates.com">Contact</a>
+            </div>
+            <p class="copyright">&copy; <span id="currentYear"></span> Loopstates. All rights reserved.</p>
         </footer>
     </div>
 
@@ -229,4 +291,4 @@
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
-l>
+</html>

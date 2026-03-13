@@ -100,8 +100,11 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 0.75rem 1.5rem;
+            padding: 1.25rem 2rem;
             box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         nav ul {
@@ -109,16 +112,26 @@
             display: flex;
             gap: 1.5rem;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: flex;
+            align-items: center;
         }
 
         nav a {
             text-decoration: none;
             color: var(--text-muted);
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: all 0.2s;
             white-space: nowrap;
+            display: flex;
+            align-items: center;
         }
 
         nav a:hover {
@@ -307,49 +320,182 @@
             color: var(--text);
         }
 
-        /* Footer */
+        /* Standardized Footer */
         footer {
-            padding: 4rem 0;
-            text-align: center;
+            margin-top: 5rem;
+            padding: 5rem 0 3rem;
             border-top: 1px solid #e2e8f0;
-            color: var(--text-muted);
+            text-align: center;
         }
 
         .footer-logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
-            opacity: 0.6;
+            gap: 0.75rem;
+            text-decoration: none;
             margin-bottom: 1.5rem;
+            transition: opacity 0.2s;
+            opacity: 1; /* Override SwiftSearch specific opacity */
         }
 
-        footer nav {
-            position: static;
-            background: transparent;
-            box-shadow: none;
-            backdrop-filter: none;
-            border: none;
-            margin: 1rem 0;
+        .footer-logo:hover {
+            opacity: 0.8;
         }
 
-        footer nav a {
+        .footer-logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .footer-logo span {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--text);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
             color: var(--text-muted);
-            margin: 0 1rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
         }
 
-        footer nav a:hover {
+        .footer-links a:hover {
             color: var(--primary);
-            text-decoration: underline;
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Download Section Styling (WordPress Style) */
+        .download-section {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 4rem 0;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            min-width: 260px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 20px -8px rgba(0, 71, 255, 0.2);
+        }
+
+        .download-btn img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .btn-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .btn-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .device-name {
+            font-size: 1.1rem;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Standardized Footer Refinement */
+        footer {
+            margin-top: 5rem;
+            padding: 5rem 0 3rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: opacity 0.2s;
+        }
+
+        .footer-logo:hover {
+            opacity: 0.8;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.85rem;
         }
 
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
+            .tagline { font-size: 1.1rem; }
             .section-card { padding: 1.5rem; }
             nav { top: 0.5rem; }
             .nav-inner { padding: 0.5rem 1rem; }
             nav ul { gap: 0.75rem; }
             nav a { font-size: 0.8rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .footer-links { gap: 1rem; flex-direction: column; align-items: center; }
+            .download-btn { width: 100%; }
         }
     </style>
 </head>
@@ -363,6 +509,23 @@
                 <h1>Swift Search</h1>
             </div>
             <p class="tagline">Lightning Fast Typesense Search for WordPress & WooCommerce</p>
+
+            <div class="download-section">
+                <a href="#" class="download-btn">
+                    <img src="wordpress.svg" alt="WordPress Logo">
+                    <span class="btn-text">
+                        <span class="btn-label">Install for</span>
+                        <span class="device-name">WordPress Repo</span>
+                    </span>
+                </a>
+                <a href="#" class="download-btn">
+                    <img src="wordpress-pro.svg" alt="Pro Logo">
+                    <span class="btn-text">
+                        <span class="btn-label">Get the</span>
+                        <span class="device-name">Professional Version</span>
+                    </span>
+                </a>
+            </div>
         </header>
 
         <nav>
@@ -579,16 +742,16 @@ do_action('swift_search_async_index_post', 123);
         </main>
 
         <footer>
-            <div class="footer-logo">
-                <img src="logo.png" alt="Swift Search Logo" class="logo-img" style="height: 32px">
-                <span style="font-family: 'Outfit'; font-weight: 600;">Swift Search</span>
-            </div>
-            <nav>
+            <a href="https://loopstates.com" class="footer-logo">
+                <img src="../loopstates-logo.png" alt="Loopstates Logo">
+            </a>
+            <div class="footer-links">
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Service</a>
                 <a href="support.html">Support</a>
-            </nav>
-            <p>&copy; <span id="currentYear"></span> Loopstates. All Rights Reserved.</p>
+                <a href="mailto:support@loopstates.com">Contact</a>
+            </div>
+            <p class="copyright">&copy; <span id="currentYear"></span> Loopstates. All Rights Reserved.</p>
         </footer>
     </div>
 
