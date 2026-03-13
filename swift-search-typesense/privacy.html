@@ -1,156 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - SwiftSearch</title>
+    <title>Privacy Policy - Swift Search Typesense | Loopstates</title>
+    <meta name="description" content="Privacy Policy for Swift Search Typesense. Understand how we handle your data with transparency and security.">
     <link rel="icon" type="image/png" href="../favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #0047FF;
-            --secondary: #FF0000;
-            --dark: #1F2937;
-            --light: #F3F4F6;
-            --white: #FFFFFF;
-            --text: #374151;
-            --border: #E5E7EB;
+            --primary-hover: #0037cc;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 71, 255, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 71, 255, 0.03) 0%, transparent 40%);
             color: var(--text);
-            margin: 0;
-            background: var(--light);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1rem;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background: var(--white);
-            min-height: 100vh;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
         }
 
         header {
-            background: var(--white);
-            color: var(--dark);
-            padding: 2rem;
             text-align: center;
-            border-bottom: 1px solid var(--border);
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 2rem;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-            letter-spacing: -1px;
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .logo-img {
-            max-height: 40px;
-            vertical-align: middle;
-            margin-right: 10px;
+            height: 48px;
+            width: auto;
         }
 
-        main {
-            padding: 3rem 2rem;
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .last-updated {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
         }
 
         h2 {
-            color: var(--dark);
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.5rem;
-            margin-top: 2rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
         h3 {
-            color: var(--dark);
-            margin-top: 1.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        li strong {
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin-right: 0.5rem;
+        }
+
+        /* Navigation */
+        .main-nav {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
         }
 
         footer {
-            background: #f8fafc;
+            margin-top: 3rem;
             text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--border);
-            color: #64748b;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        footer a {
-            color: var(--text);
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer a:hover {
-            color: var(--primary);
-            text-decoration: underline;
+        @media (max-width: 640px) {
+            .glass-panel { padding: 2rem 1.5rem; }
+            h1 { font-size: 1.75rem; }
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <header>
-            <div style="display: flex; align-items: center; justify-content: center;">
-                <img src="logo.png" alt="Swift Search Typesense" class="logo-img">
-                <h1>Privacy Policy</h1>
-            </div>
-        </header>
-        <main>
-            <p>Effective Date: January 1, 2026</p>
+        <div class="glass-panel">
+            <header>
+                <div class="logo-area">
+                    <img src="logo.png" alt="Swift Search Logo" class="logo-img">
+                    <h1>Privacy Policy</h1>
+                </div>
+                <p class="last-updated">Effective Date: January 1, 2026</p>
+            </header>
 
-            <h2>1. Introduction</h2>
-            <p>Thank you for using <strong>Swift Search</strong> ("we", "us", or "our"). This Privacy Policy explains
-                how
-                we collect, use, disclosure, and safeguard your information when you use our WordPress plugin.</p>
+            <section>
+                <p>Thank you for choosing <strong>Swift Search</strong>. We are committed to protecting your privacy and being transparent about how we handle data within our WordPress plugin.</p>
+            </section>
 
-            <h2>2. Information We Collect</h2>
-            <h3>A. Plugin Data</h3>
-            <p>Swift Search connects your WordPress site to a Typesense server. The plugin indexes your content (posts,
-                pages, products) and sends it to your designated Typesense instance.</p>
-            <ul>
-                <li><strong>Search Queries:</strong> Search terms entered by users on your site are sent to Typesense to
-                    retrieve results.</li>
-                <li><strong>Search Analytics:</strong> We store aggregated data on "Top Queries" and "No Result Queries"
-                    to help you optimize your store.</li>
-                <li><strong>Indexed Content:</strong> Publicly available content on your site is indexed. We do not
-                    index private or password-protected content unless explicitly configured.</li>
-            </ul>
+            <section>
+                <h2>Data Processing</h2>
+                <p>Swift Search acts as a bridge between your WordPress site and your Typesense search server.</p>
+                
+                <h3>A. Search Infrastructure</h3>
+                <ul>
+                    <li><strong>Content Indexing:</strong> The plugin processes your public posts, pages, and products to build a searchable index on your designated Typesense instance.</li>
+                    <li><strong>Search Queries:</strong> User search terms are sent directly to the Typesense API to retrieve real-time results.</li>
+                    <li><strong>Analytics:</strong> Aggregated data on search trends (like popular queries or queries without results) is stored to help you improve your site's discoverability.</li>
+                </ul>
 
-            <h3>B. License Data (Freemius)</h3>
-            <p>Unless you opt-out, we use Freemius SDK to handle licensing and updates. Freemius may collect:</p>
-            <ul>
-                <li>Site URL and WordPress version.</li>
-                <li>Plugin version and active status.</li>
-                <li>Admin name and email (only if you opt-in to usage tracking).</li>
-            </ul>
+                <h3>B. Licensing & Updates</h3>
+                <p>We use the Freemius SDK to manage licenses and provide secure updates. This may collect basic site information (URL, WP version) for subscription management.</p>
+            </section>
 
-            <h2>3. Third-Party Services</h2>
-            <h3>Typesense</h3>
-            <p>If you use Typesense Cloud, their privacy policy applies to the data stored on their servers. If you
-                self-host Typesense, you retain full control over your data.</p>
+            <section>
+                <h2>Third-Party Services</h2>
+                <p>Data stored on <strong>Typesense Cloud</strong> is subject to their own privacy policies. If you self-host Typesense, you maintain 100% control over all searchable data and logs.</p>
+            </section>
 
-            <h2>4. Data Security</h2>
-            <p>We do not store your API keys on our servers. Your Typesense API keys are stored in your own WordPress
-                database. We recommend keeping your Admin API Key secret and only exposing the Search-Only API Key to
-                the frontend.</p>
+            <section>
+                <h2>Security Commitment</h2>
+                <p>We do not store your API keys on our servers. All credentials and configuration settings are stored securely within your own WordPress database. We strongly recommend using the "Search-Only" API key for frontend requests.</p>
+            </section>
 
-            <h2>5. Contact Us</h2>
-            <p>If you have questions about this Privacy Policy, please contact us at <a
-                    href="mailto:support@loopstates.com">support@loopstates.com</a>.</p>
-        </main>
+            <section>
+                <h2>Contact Us</h2>
+                <p>If you have any questions regarding this policy or data handling, please reach out to us at <a href="mailto:support@loopstates.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">support@loopstates.com</a>.</p>
+            </section>
+
+            <nav class="main-nav">
+                <a href="../index.html" class="nav-link">← All Products</a>
+                <a href="index.html" class="nav-link">Swift Search Home</a>
+                <a href="support.html" class="nav-link">Support & FAQ</a>
+                <a href="terms.html" class="nav-link">Terms of Service</a>
+            </nav>
+        </div>
+
         <footer>
-            <p>&copy; 2026 Swift Search Typesense. All Rights Reserved.</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">
-                <a href="../index.html">All Products</a> |
-                <a href="index.html">Documentation</a> |
-                <a href="terms.html">Terms of Service</a> |
-                <a href="support.html">Support</a>
-            </p>
+            <p>&copy; <span id="currentYear"></span> Loopstates. All Rights Reserved.</p>
         </footer>
     </div>
-</body>
 
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
 </html>

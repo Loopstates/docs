@@ -1,236 +1,290 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindfulTabs Support & FAQ - Get Help with Your Tab Management</title>
     <meta name="description"
-        content="Find answers to common questions and get support for MindfulTabs, the browser extension by Loopstates. Learn how to use tab grouping, session manager, focus mode, notes, and wellness alarms.">
+        content="Find answers to common questions and get support for MindfulTabs, the browser extension by Loopstates. Learn how to use tab grouping, session manager, focus mode, and wellness alarms.">
     <link rel="icon" type="image/png" href="../favicon.png">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is MindfulTabs?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "MindfulTabs is a browser extension designed to help you organize your browser tabs, manage browsing sessions, stay focused, take notes, and receive wellness reminders."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I save a browsing session?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Open the MindfulTabs popup, go to the \"Sessions\" tab, enter a name for your session, and click \"Save Current Session.\""
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does Focus Mode work?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Focus Mode temporarily moves all other tabs in your current window to a new, minimized window, allowing you to concentrate on your active tab without distractions. When you exit Focus Mode, your tabs are restored."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are my notes and sessions stored online?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No, all your data (sessions, notes, custom groups, settings) is stored locally on your computer using your browser's local storage. We do not collect or transmit any of your personal browsing data."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I set up wellness alarms?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Go to the \"Wellness\" tab in the MindfulTabs popup. You can choose an alarm type (e.g., Water Break, Stretch) and set an interval in minutes. Click \"Add Alarm\" to activate it."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I create custom tab groups?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "In the \"Grouping\" tab, you can create a new group by entering a name. Then, click \"Adjust Tabs\" next to a group to select which open tabs you want to include or remove from that group."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What if I have a problem or suggestion?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Please contact us at support@loopstates.com for any questions or suggestions."
-          }
-        }
-      ]
-    }
-    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        :root {
+            --primary: #0066ff;
+            --primary-hover: #0052cc;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 102, 255, 0.03) 0%, transparent 40%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1rem;
         }
 
         .container {
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
         }
 
-        h1,
-        h2 {
-            color: #0056b3;
-        }
-
-        h3 {
-            color: #0056b3;
-            margin-top: 20px;
-        }
-
-        .faq-item {
-            margin-bottom: 15px;
-        }
-
-        .faq-item strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .footer {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        /* Header & Logo Styling */
-        .logo-img {
-            max-height: 40px;
-            vertical-align: middle;
-            margin-right: 15px;
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
         }
 
         header {
-            margin-bottom: 30px;
             text-align: center;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 2rem;
         }
 
-        /* Navigation Styles */
-        .main-nav {
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-img {
+            height: 48px;
+            width: auto;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text);
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background: #fff;
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
             text-align: center;
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-card p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .email-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 102, 255, 0.3);
+        }
+
+        /* FAQ Grid */
+        .faq-grid {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .faq-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-card:hover {
+            background: #fff;
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .faq-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .faq-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            padding-left: 1.9rem;
+        }
+
+        /* Navigation */
+        .main-nav {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .nav-link {
-            display: inline-block;
-            margin: 0 15px;
-            color: #007bff;
+            color: var(--text-muted);
             text-decoration: none;
-            font-weight: bold;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .nav-link:hover {
-            background-color: #007bff;
-            color: white;
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            .glass-panel { padding: 2rem 1.5rem; }
+            h1 { font-size: 1.75rem; }
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <header>
-            <div style="display: flex; align-items: center; justify-content: center;">
-                <img src="logo.png" alt="MindfulTabs Logo" class="logo-img">
-                <h1>Support & FAQ</h1>
-            </div>
-        </header>
-        <p>Thank you for using MindfulTabs! We're here to help you with any questions, issues, or feedback you might
-            have.</p>
+        <div class="glass-panel">
+            <header>
+                <div class="logo-area">
+                    <img src="logo.png" alt="MindfulTabs Logo" class="logo-img">
+                    <h1>Support & FAQ</h1>
+                </div>
+                <p class="subtitle">Everything you need to know about MindfulTabs</p>
+            </header>
 
-        <h2>How to Get Support:</h2>
-        <ul>
-            <li><strong>Email:</strong> For general inquiries or technical support, please email us at <a
-                    href="mailto:support@loopstates.com">support@loopstates.com</a>.</li>
-        </ul>
+            <section>
+                <h2>Need direct help?</h2>
+                <div class="contact-card">
+                    <p>Have a technical issue or a feature suggestion? Our team is ready to assist you. We typically respond within 24-48 hours.</p>
+                    <a href="mailto:support@loopstates.com" class="email-btn">
+                        <span>✉️</span> support@loopstates.com
+                    </a>
+                </div>
+            </section>
 
-        <p>We aim to respond to all inquiries within 24-48 hours.</p>
+            <section>
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-card">
+                        <h3><span>❓</span> What is MindfulTabs?</h3>
+                        <p>MindfulTabs is a browser extension designed to help you organize your browser tabs, manage browsing sessions, stay focused, take notes, and receive wellness reminders.</p>
+                    </div>
 
-        <h2>Frequently Asked Questions (FAQ)</h2>
-        <div class="faq-item">
-            <h3>Q: What is MindfulTabs?</h3>
-            <p>A: MindfulTabs is a browser extension designed to help you organize your browser tabs, manage browsing
-                sessions, stay focused, take notes, and receive wellness reminders.</p>
+                    <div class="faq-card">
+                        <h3><span>💾</span> How do I save a browsing session?</h3>
+                        <p>Open the MindfulTabs popup, go to the "Sessions" tab, enter a name for your session, and click "Save Current Session."</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3><span>🎯</span> How does Focus Mode work?</h3>
+                        <p>Focus Mode temporarily moves all other tabs in your current window to a new, minimized window, allowing you to concentrate on your active tab. When you exit, all tabs are restored instantly.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3><span>🔒</span> Are my notes and sessions stored online?</h3>
+                        <p>No. All your data (sessions, notes, custom groups, settings) is stored locally on your device using the browser's storage. We do not collect or transmit any of your browsing data.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3><span>⏰</span> How do I set up wellness alarms?</h3>
+                        <p>Go to the "Wellness" tab in the MindfulTabs popup. Choose an alarm type (e.g., Water Break, Stretch) and set an interval. Click "Add Alarm" to activate your reminder.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3><span>🗂️</span> How do I create custom tab groups?</h3>
+                        <p>In the "Grouping" tab, enter a name to create a new group. Then, click "Adjust Tabs" next to any group to select which open tabs you want to include or remove.</p>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="main-nav">
+                <a href="../index.html" class="nav-link">← All Products</a>
+                <a href="index.html" class="nav-link">MindfulTabs Home</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+            </nav>
         </div>
 
-        <div class="faq-item">
-            <h3>Q: How do I save a browsing session?</h3>
-            <p>A: Open the MindfulTabs popup, go to the "Sessions" tab, enter a name for your session, and click "Save
-                Current Session."</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Q: How does Focus Mode work?</h3>
-            <p>A: Focus Mode temporarily moves all other tabs in your current window to a new, minimized window,
-                allowing you to concentrate on your active tab without distractions. When you exit Focus Mode, your tabs
-                are restored.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Q: Are my notes and sessions stored online?</h3>
-            <p>A: No, all your data (sessions, notes, custom groups, settings) is stored locally on your computer using
-                your browser's local storage. We do not collect or transmit any of your personal browsing data.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Q: How do I set up wellness alarms?</h3>
-            <p>A: Go to the "Wellness" tab in the MindfulTabs popup. You can choose an alarm type (e.g., Water Break,
-                Stretch) and set an interval in minutes. Click "Add Alarm" to activate it.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Q: How do I create custom tab groups?</h3>
-            <p>A: In the "Grouping" tab, you can create a new group by entering a name. Then, click "Adjust Tabs" next
-                to a group to select which open tabs you want to include or remove from that group.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Q: What if I have a problem or suggestion?</h3>
-            <p>A: Please contact us at <a href="mailto:support@loopstates.com">support@loopstates.com</a> for any questions
-                or suggestions.</p>
-        </div>
-        <nav class="main-nav">
-            <a href="../index.html" class="nav-link">← All Products</a>
-            <a href="index.html" class="nav-link">MindfulTabs Documentation</a>
-            <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-        </nav>
+        <footer>
+            <p>&copy; <span id="currentYear"></span> Loopstates. All rights reserved.</p>
+        </footer>
     </div>
-    <div class="footer">
-        <p>&copy; <span id="currentYear"></span> Loopstates. All rights reserved.</p>
-    </div>
+
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
-
-</html>
+l>

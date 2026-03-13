@@ -1,211 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwiftSearch - Documentation</title>
+    <title>Swift Search Typesense - Lightning Fast WordPress Search</title>
+    <meta name="description" content="Official documentation for Swift Search Typesense, the high-performance search engine for WordPress and WooCommerce.">
     <link rel="icon" type="image/png" href="../favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #0047FF;
-            --secondary: #FF0000;
-            --dark: #1F2937;
-            --light: #F3F4F6;
-            --white: #FFFFFF;
-            --text: #374151;
-            --border: #E5E7EB;
+            --primary-light: rgba(0, 71, 255, 0.1);
+            --secondary: #ff3333;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            --radius: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(0, 71, 255, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(0, 71, 255, 0.03) 0%, transparent 40%);
             color: var(--text);
-            margin: 0;
-            background: var(--light);
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            background: var(--white);
-            min-height: 100vh;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            padding: 0 1.5rem;
         }
 
+        /* Header */
         header {
-            background: var(--white);
-            color: var(--dark);
-            padding: 3rem 2rem;
+            padding: 4rem 0 2rem;
             text-align: center;
-            border-bottom: 1px solid var(--border);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: -1px;
-            color: var(--dark);
-        }
-
-        header p {
-            margin-top: 10px;
-            opacity: 0.8;
-            font-size: 1.1rem;
-            color: var(--text);
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-bottom: 1rem;
         }
 
         .logo-img {
-            max-height: 50px;
-            vertical-align: middle;
-            margin-right: 15px;
+            height: 64px;
+            width: auto;
         }
 
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.03em;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Sticky Nav */
         nav {
-            background: white;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid var(--border);
             position: sticky;
-            top: 0;
-            z-index: 100;
+            top: 1rem;
+            z-index: 1000;
+            margin: 2rem 0;
+        }
+
+        .nav-inner {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 0.75rem 1.5rem;
+            box-shadow: var(--shadow);
         }
 
         nav ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
             display: flex;
-            gap: 20px;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--text);
+            color: var(--text-muted);
             font-weight: 500;
-            transition: color 0.2s;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            white-space: nowrap;
         }
 
         nav a:hover {
             color: var(--primary);
         }
 
-        main {
-            padding: 3rem 2rem;
+        .back-link {
+            color: var(--primary);
+            font-weight: 700;
         }
 
-        section {
+        /* Main Content */
+        main {
+            padding-bottom: 5rem;
+        }
+
+        .section-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            padding: 3rem;
             margin-bottom: 3rem;
-            scroll-margin-top: 80px;
+            box-shadow: var(--shadow);
+            scroll-margin-top: 100px;
         }
 
         h2 {
-            color: var(--dark);
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.5rem;
-            margin-top: 0;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 4px;
         }
 
         h3 {
-            color: var(--dark);
-            margin-top: 1.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            margin: 2rem 0 1rem;
+            color: var(--text);
         }
 
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--text-muted);
+        }
+
+        /* Feature Grid */
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .feature-card {
-            background: #f8fafc;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
+            background: var(--bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            background: #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .pro-badge {
-            background: var(--secondary);
+            background: linear-gradient(135deg, #ff3333, #ff0000);
             color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: bold;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 20px;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
         }
 
+        /* Steps */
+        .step {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg);
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .step-num {
+            background: var(--primary);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 71, 255, 0.3);
+        }
+
+        .step-content h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code Blocks */
         code {
+            font-family: 'Fira Code', monospace;
             background: #f1f5f9;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.9em;
             color: #ef4444;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.85em;
         }
 
         pre {
-            background: #1e293b;
+            background: #0f172a;
             color: #f8fafc;
-            padding: 1rem;
-            border-radius: 8px;
+            padding: 1.5rem;
+            border-radius: 16px;
             overflow-x: auto;
+            margin: 1.5rem 0;
+            border: 1px solid #1e293b;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         pre code {
             background: transparent;
             color: inherit;
             padding: 0;
+            font-size: inherit;
         }
 
-        .step {
-            display: flex;
-            gap: 15px;
+        /* Lists */
+        ul {
             margin-bottom: 1.5rem;
-            align-items: flex-start;
+            padding-left: 1.25rem;
         }
 
-        .step-num {
-            background: var(--primary);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+        li {
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .faq-item h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            color: var(--text-muted);
+        }
+
+        .footer-logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            flex-shrink: 0;
-            margin-top: 0;
+            gap: 1rem;
+            opacity: 0.6;
+            margin-bottom: 1.5rem;
         }
 
-        .step h3 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
+        footer nav {
+            position: static;
+            background: transparent;
+            box-shadow: none;
+            backdrop-filter: none;
+            border: none;
+            margin: 1rem 0;
         }
 
-        .step p {
-            margin: 0;
+        footer nav a {
+            color: var(--text-muted);
+            margin: 0 1rem;
         }
 
-        footer {
-            background: #f8fafc;
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--border);
-            color: #64748b;
-        }
-
-        footer a {
-            color: var(--text);
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer a:hover {
+        footer nav a:hover {
             color: var(--primary);
             text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .section-card { padding: 1.5rem; }
+            nav { top: 0.5rem; }
+            .nav-inner { padding: 0.5rem 1rem; }
+            nav ul { gap: 0.75rem; }
+            nav a { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -214,169 +358,141 @@
 
     <div class="container">
         <header>
-            <div style="display: flex; align-items: center; justify-content: center;">
-                <img src="logo.png" alt="Swift Search Typesense" class="logo-img">
-                <h1>Swift Search Typesense</h1>
+            <div class="logo-area">
+                <img src="logo.png" alt="Swift Search Logo" class="logo-img">
+                <h1>Swift Search</h1>
             </div>
-            <p>Lightning Fast Typesense Search for WordPress & WooCommerce</p>
+            <p class="tagline">Lightning Fast Typesense Search for WordPress & WooCommerce</p>
         </header>
 
-
-
         <nav>
-            <ul>
-                <li><a href="../index.html" style="color: var(--primary); font-weight: bold;">← All Products</a></li>
-                <li><a href="#installation">Installation</a></li>
-                <li><a href="#configuration">Configuration</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#license">License</a></li>
-                <li><a href="#theming">Theming</a></li>
-                <li><a href="#hooks">Developer</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
+            <div class="nav-inner">
+                <ul>
+                    <li><a href="../index.html" class="back-link">← All Products</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#configuration">Configuration</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#license">License</a></li>
+                    <li><a href="#theming">Theming</a></li>
+                    <li><a href="#hooks">Developer</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
         </nav>
 
         <main>
-            <section id="introduction">
-                <p><strong>SwiftSearch</strong> replaces your default WordPress search with an instant, typo-tolerant
-                    search engine powered by <a href="https://typesense.org" target="_blank">Typesense</a>. It's
-                    designed for speed, converting your visitors into customers with lightning-fast results.</p>
-            </section>
-
-            <section id="advantages">
-                <h2>Why SwiftSearch?</h2>
+            <section id="introduction" class="section-card">
+                <p><strong>SwiftSearch</strong> replaces your default WordPress search with an instant, typo-tolerant search engine powered by <a href="https://typesense.org" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: none;">Typesense</a>. It's designed for speed, converting your visitors into customers with lightning-fast results.</p>
+                
                 <div class="feature-grid">
                     <div class="feature-card" style="border-left: 4px solid var(--primary);">
                         <h3>🚀 Zero Latency</h3>
-                        <p>Runs entirely in the browser. No waiting for your WordPress database (MySQL) to query
-                            results.</p>
+                        <p>Runs entirely in the browser. No waiting for your WordPress database (MySQL) to query results.</p>
                     </div>
                     <div class="feature-card" style="border-left: 4px solid var(--primary);">
-                        <h3>🔒 Most Secure Plugin</h3>
-                        <p>We use digital signatures to protect your API keys. Your connection settings are
-                            tamper-proof.</p>
+                        <h3>🔒 Most Secure</h3>
+                        <p>We use digital signatures to protect your API keys. Your connection settings are tamper-proof.</p>
                     </div>
                     <div class="feature-card" style="border-left: 4px solid var(--primary);">
-                        <h3>📉 Reduced Server Load</h3>
-                        <p>Offload search queries to Typesense. Your WordPress server breathes easier, even during
-                            traffic spikes.</p>
+                        <h3>📉 Server Offload</h3>
+                        <p>Offload search queries to Typesense. Your WordPress server breathes easier, even during traffic spikes.</p>
                     </div>
                     <div class="feature-card" style="border-left: 4px solid var(--primary);">
                         <h3>📱 Mobile First</h3>
-                        <p>Includes a sticky mobile search button and a responsive overlay UI designed for touch
-                            devices.</p>
+                        <p>Includes a sticky mobile search button and a responsive overlay UI designed for touch devices.</p>
                     </div>
                 </div>
             </section>
 
-            <section id="installation">
+            <section id="installation" class="section-card">
                 <h2>1. Installation</h2>
                 <div class="step">
                     <div class="step-num">1</div>
-                    <div>
+                    <div class="step-content">
                         <h3>Install Typesense</h3>
-                        <p>You need a running Typesense server. You can self-host it using Docker (free) or use <a
-                                href="https://cloud.typesense.org" target="_blank">Typesense Cloud</a>.</p>
+                        <p>You need a running Typesense server. You can self-host it using Docker (free) or use <a href="https://cloud.typesense.org" target="_blank" style="color: var(--primary); font-weight: 500;">Typesense Cloud</a>.</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-num">2</div>
-                    <div>
+                    <div class="step-content">
                         <h3>Install the Plugin</h3>
-                        <p>Upload the <code>swift-search-typesense.zip</code> file to your WordPress Plugins dashboard
-                            and activate it.</p>
+                        <p>Upload the <code>swift-search-typesense.zip</code> file to your WordPress Plugins dashboard and activate it.</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-num">3</div>
-                    <div>
+                    <div class="step-content">
                         <h3>Setup Wizard</h3>
-                        <p>Go to the <strong>SwiftSearch</strong> menu in your admin dashboard. Enter your Typesense
-                            credentials (Node URL, API Key) to connect.</p>
+                        <p>Go to the <strong>SwiftSearch</strong> menu in your admin dashboard. Enter your Typesense credentials (Node URL, API Key) to connect.</p>
                     </div>
                 </div>
             </section>
 
-            <section id="configuration">
+            <section id="configuration" class="section-card">
                 <h2>2. Configuration & Indexing</h2>
                 <p>SwiftSearch simplifies index management with a robust dashboard.</p>
 
                 <h3>API Keys Best Practice</h3>
                 <p>For optimal security, we recommend using two separate API keys:</p>
                 <ul>
-                    <li><strong>Admin Key:</strong> Used by the plugin to create schemas and index content securely from
-                        the backend.</li>
-                    <li><strong>Search-Only Key:</strong> Used by the frontend/browser to fetch results. This key is
-                        read-only and safe to expose.</li>
+                    <li><strong>Admin Key:</strong> Used by the plugin to create schemas and index content securely from the backend.</li>
+                    <li><strong>Search-Only Key:</strong> Used by the frontend/browser to fetch results. This key is read-only and safe to expose.</li>
                 </ul>
 
                 <h3>Reliable Background Indexing</h3>
-                <p>Click "Index All" to start building your search index. The plugin uses the industry-standard
-                    <strong>Action Scheduler</strong> (the same library used by WooCommerce) to process thousands of
-                    items in the background without slowing down your site.
-                </p>
+                <p>Click "Index All" to start building your search index. The plugin uses the industry-standard <strong>Action Scheduler</strong> (the same library used by WooCommerce) to process thousands of items in the background without slowing down your site.</p>
             </section>
 
-            <section id="features">
+            <section id="features" class="section-card">
                 <h2>3. Features & Capabilities</h2>
                 <div class="feature-grid">
                     <div class="feature-card">
                         <h3>⚡ Instant Search</h3>
-                        <p>Results appear instantly as you type. Provides a "Google-like" autocomplete experience for
-                            your site.</p>
+                        <p>Results appear instantly as you type. Provides a "Google-like" autocomplete experience.</p>
                     </div>
                     <div class="feature-card">
-                        <h3>🔍 Smart Typo Tolerance</h3>
-                        <p>State-of-the-art spell correction. Finds "iPhone" even if a user types "iphoen". Never lose a
-                            sale to a typo.</p>
+                        <h3>🔍 Typo Tolerance</h3>
+                        <p>State-of-the-art spell correction. Finds "iPhone" even if a user types "iphoen".</p>
                     </div>
                     <div class="feature-card">
-                        <h3>📦 WooCommerce Integration</h3>
-                        <p>Fully compatible with WooCommerce. Indexes Products, SKUs, Prices, Categories, and Stock
-                            Status out of the box.</p>
+                        <h3>📦 WooCommerce</h3>
+                        <p>Fully compatible. Indexes Products, SKUs, Prices, Categories, and Stock Status.</p>
                     </div>
                     <div class="feature-card">
                         <h3>🗂️ Unified Search</h3>
-                        <p>Search everything in one place: Posts, Pages, Products, Custom Post Types, Categories, and
-                            Authors.</p>
+                        <p>Search everything: Posts, Pages, Products, Custom Post Types, and Authors.</p>
                     </div>
                     <div class="feature-card">
-                        <h3>📂 Faceted Filtering <span class="pro-badge">PRO</span></h3>
-                        <p>Let users refine results by Category, Price Range, Brand, or any custom attribute. Instant
-                            updates without page reloads.</p>
+                        <h3>📂 Faceted Filters <span class="pro-badge">PRO</span></h3>
+                        <p>Let users refine results by Category, Price, or Brand. Instant updates without reload.</p>
                     </div>
                     <div class="feature-card">
                         <h3>✨ Precision Ranking <span class="pro-badge">PRO</span></h3>
-                        <p>Control exactly how results are ranked. Prioritize matches in Titles, boost In-Stock
-                            products, or demote older content.</p>
+                        <p>Control exactly how results are ranked. Prioritize matches in Titles or boost Stock.</p>
                     </div>
                     <div class="feature-card">
-                        <h3>📚 AI-Ready Synonyms <span class="pro-badge">PRO</span></h3>
-                        <p>Define synonyms (e.g., "Parka" = "Jacket") so users always find what they are looking for,
-                            regardless of the term they use.</p>
+                        <h3>📚 AI Synonyms <span class="pro-badge">PRO</span></h3>
+                        <p>Define synonyms (e.g., "Parka" = "Jacket") so users always find what they need.</p>
                     </div>
                     <div class="feature-card">
-                        <h3>📌 Merchandising (Pinning) <span class="pro-badge">PRO</span></h3>
-                        <p>Manually pin specific products to the #1 spot for high-value search terms (e.g., promote a
-                            specific "Running Shoe").</p>
+                        <h3>📌 Pinning <span class="pro-badge">PRO</span></h3>
+                        <p>Manually pin specific products to the #1 spot for high-value search terms.</p>
                     </div>
                     <div class="feature-card">
-                        <h3>🔧 Custom Fields Support <span class="pro-badge">PRO</span></h3>
-                        <p>Index and search fast within ACF (Advanced Custom Fields) or map any custom database field
-                            (e.g. SEO Meta Data).</p>
+                        <h3>🔧 Custom Fields <span class="pro-badge">PRO</span></h3>
+                        <p>Index and search within ACF or map any custom database field (e.g. SEO Meta).</p>
                     </div>
                     <div class="feature-card">
                         <h3>📊 Search Analytics <span class="pro-badge">PRO</span></h3>
-                        <p>Gain insights into user behavior. Track "Top Queries" and specifically "No Result Queries" to
-                            discover missing content opportunities.</p>
+                        <p>Track "Top Queries" and specifically "No Result Queries" to discover gaps.</p>
                     </div>
                 </div>
             </section>
 
-            <section id="shortcode">
+            <section id="shortcode" class="section-card">
                 <h2>4. Displaying the Search</h2>
-                <p>To display the clean search bar anywhere on your site (header, sidebar, or inside a page), use the
-                    shortcode:</p>
+                <p>To display the clean search bar anywhere on your site (header, sidebar, or inside a page), use the shortcode:</p>
                 <pre>[swift_search]</pre>
 
                 <h3>Advanced Options</h3>
@@ -385,11 +501,6 @@
                     <li><code>placeholder</code>: Custom placeholder text (Default: "Search...").</li>
                     <li><code>limit</code>: Maximum number of results to display (Default: 10).</li>
                     <li><code>show_thumbnail</code>: "true" to show images, "false" for text-only.</li>
-                    <li><code>show_price</code>: "true" to display WooCommerce prices.</li>
-                    <li><code>show_excerpt</code>: "true" to display post content snippets (Default: false).</li>
-                    <li><code>instant_search</code>: "true" (Overlay), "false" (Standard Form), or "default".</li>
-                    <li><code>scope</code>: "posts" (Articles/Products) or "terms" (Categories/Tags) or "users"
-                        (Authors).</li>
                     <li><code>post_types</code>: Comma-separated list (e.g. "product,post").</li>
                 </ul>
 
@@ -397,39 +508,32 @@
                 <pre>[swift_search placeholder="Find products..." limit="8" post_types="product" show_price="true"]</pre>
             </section>
 
-            <section id="license">
-                <h2>5. Activating Pro License</h2>
-                <p>If you have purchased a <strong>Pro</strong> license, you need to activate it to unlock
-                    <strong>Advanced and Pro features</strong> like Smart Ranking, Facets, Custom Fields, and Analytics.
-                </p>
+            <section id="license" class="section-card">
+                <h2>5. Pro Activation</h2>
                 <div class="step">
                     <div class="step-num">1</div>
-                    <div>
+                    <div class="step-content">
                         <h3>Enter License Key</h3>
-                        <p>After installing the plugin, you will see an opt-in screen from Freemius. Enter your License
-                            Key there.</p>
+                        <p>After installing the plugin, you will see an opt-in screen from Freemius. Enter your License Key there.</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-num">2</div>
-                    <div>
+                    <div class="step-content">
                         <h3>Access Account</h3>
-                        <p>You can manage your license, invoices, and subscription from the <strong>Account</strong> tab
-                            in the plugin settings.</p>
+                        <p>Manage your license, invoices, and subscription from the <strong>Account</strong> tab in the plugin settings.</p>
                     </div>
                 </div>
             </section>
 
-            <section id="theming">
+            <section id="theming" class="section-card">
                 <h2>6. Theming & Customization</h2>
-                <p>The search interface is designed to inherit your theme's fonts, but you can override styles using
-                    standard CSS. The plugin uses a BEM-like naming convention.</p>
+                <p>The search interface is designed to inherit your theme's fonts, but you can override styles using standard CSS.</p>
 
-                <h3>Common Selectors</h3>
-                <pre>
+<pre>
 /* The Outer Wrapper */
 .ss-wrapper { 
-    max-width: 600px; /* Adjust width */
+    max-width: 600px; 
 }
 
 /* The Search Input Box */
@@ -438,86 +542,58 @@
     border: 2px solid #e5e7eb;
 }
 
-/* The Results Dropdown */
-.ss-results-container { 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-/* Result Items */
-.ss-hit { 
-    border-bottom: 1px solid #eee;
-}
-
-.ss-hit-title { 
-    font-weight: bold;
-    color: #111;
-}
-
-.ss-hit-thumb { 
-    width: 60px; 
-    height: 60px;
-    border-radius: 4px; 
-}
-
 /* Highlighted Matches */
 .ss-hit-title mark { 
     background-color: rgba(255, 0, 85, 0.1);
     color: #ff0055;
 }
-                </pre>
+</pre>
             </section>
 
-            <section id="hooks">
-                <h2>7. Developer Hooks (Actions)</h2>
-                <p>You can interact with the indexing engine programmatically. This is useful for custom import scripts
-                    or 3rd-party integrations.</p>
+            <section id="hooks" class="section-card">
+                <h2>7. Developer Hooks</h2>
+                <p>Interact with the indexing engine programmatically. Useful for custom import scripts.</p>
 
                 <h3>Async Indexing</h3>
-                <p>The plugin uses <strong>Action Scheduler</strong> to process posts in the background. You can
-                    manually trigger a re-index for any post:</p>
-                <pre>
-// Trigger re-index for Post ID 123 (Runs in background)
+<pre>
+// Trigger re-index for Post ID 123
 do_action('swift_search_async_index_post', 123);
-                </pre>
+</pre>
             </section>
 
-            <section id="faq">
+            <section id="faq" class="section-card">
                 <h2>8. Troubleshooting & FAQ</h2>
-
-                <h3>Result "Connection Failed"</h3>
-                <ul>
-                    <li><strong>Mixed Content:</strong> If your site uses HTTPS, your Typesense server MUST also use
-                        HTTPS (wss://).</li>
-                    <li><strong>CORS:</strong> Check your browser console (F12). If you see CORS errors, configure your
-                        Typesense server to allow your domain.</li>
-                    <li><strong>Firewall:</strong> Ensure port 443 (or your custom port) is open on the Typesense
-                        server.</li>
-                </ul>
-
-                <h3>Search Bar Not Appearing?</h3>
-                <p>If the standard search bar isn't replaced, go to <strong>SwiftSearch Settings</strong> and ensure
-                    <strong>"Override Default Search"</strong> is enabled. Alternatively, place the
-                    <code>[swift_search]</code> shortcode manually.
-                </p>
-
-                <h3>Schema Mismatch / Re-Index Required</h3>
-                <p>If you see a "Critical Schema Mismatch" error, it means your data structure has changed (e.g., you
-                    added a new Custom Field or upgraded the plugin).</p>
-                <p><strong>Solution:</strong> Simply click the <strong>Index All</strong> button in the plugin settings
-                    to rebuild the collection.</p>
+                <div class="faq-item">
+                    <h3>Result "Connection Failed"?</h3>
+                    <p>Check for "Mixed Content" (ensure HTTPS/WSS), verify CORS settings in your Typesense config, and ensure port 443 is open.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Search Bar Not Appearing?</h3>
+                    <p>Ensure "Override Default Search" is enabled in settings or place the <code>[swift_search]</code> shortcode manually.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Schema Mismatch error?</h3>
+                    <p>This happens when you change data structures. Solution: Click <strong>"Index All"</strong> to rebuild the collection.</p>
+                </div>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2026 Swift Search Typesense. All Rights Reserved.</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">
-                <a href="privacy.html">Privacy Policy</a> |
-                <a href="terms.html">Terms of Service</a> |
+            <div class="footer-logo">
+                <img src="logo.png" alt="Swift Search Logo" class="logo-img" style="height: 32px">
+                <span style="font-family: 'Outfit'; font-weight: 600;">Swift Search</span>
+            </div>
+            <nav>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
                 <a href="support.html">Support</a>
-            </p>
+            </nav>
+            <p>&copy; <span id="currentYear"></span> Loopstates. All Rights Reserved.</p>
         </footer>
     </div>
 
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
-
 </html>
