@@ -5,11 +5,13 @@
     <meta name="description"
         content="MindfulTabs is your ultimate browser extension for a more organized and focused browsing experience. Discover tab grouping, session management, focus mode, and wellness alarms.">
     <link rel="icon" type="image/png" href="../favicon.png">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
         :root {
@@ -32,7 +34,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg);
-            background-image: 
+            background-image:
                 radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.03) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(0, 102, 255, 0.03) 0%, transparent 40%);
             color: var(--text);
@@ -280,13 +282,36 @@
         }
 
         @media (max-width: 640px) {
-            .glass-panel { padding: 2rem 1.5rem; }
-            h1 { font-size: 2rem; }
-            .hero-text { font-size: 1rem; }
-            .download-btn { width: 100%; justify-content: center; }
-            .features-grid { grid-template-columns: 1fr; }
-            .main-nav { gap: 1rem; }
-            .footer-links { gap: 1rem; flex-direction: column; align-items: center; }
+            .glass-panel {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text {
+                font-size: 1rem;
+            }
+
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-nav {
+                gap: 1rem;
+            }
+
+            .footer-links {
+                gap: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -299,45 +324,54 @@
                     <img src="logo.png" alt="MindfulTabs Logo" class="logo-img">
                     <h1>MindfulTabs</h1>
                 </div>
-                <p class="hero-text">Your ultimate browser workspace for a more organized, focused, and healthy digital life. Built by Loopstates to transform how you browse.</p>
+                <p class="hero-text">Your ultimate browser workspace for a more organized, focused, and healthy digital
+                    life. Built by Loopstates to transform how you browse.</p>
             </header>
 
             <div class="features-grid">
                 <div class="feature-card">
                     <strong>🗂️ Smart Tab Grouping</strong>
-                    <p>Create and manage custom groups for your tabs. Keep your projects separated and your workspace clutter-free.</p>
+                    <p>Create and manage custom groups for your tabs. Keep your projects separated and your workspace
+                        clutter-free.</p>
                 </div>
                 <div class="feature-card">
                     <strong>💾 Session Manager</strong>
-                    <p>Save entire browser sessions and restore them instantly. Never lose a single tab or a complex research layout again.</p>
+                    <p>Save entire browser sessions and restore them instantly. Never lose a single tab or a complex
+                        research layout again.</p>
                 </div>
                 <div class="feature-card">
                     <strong>🎯 Deep Focus Mode</strong>
-                    <p>Eliminate noise by temporarily isolating your active task. Move distractions to a background window until you're done.</p>
+                    <p>Eliminate noise by temporarily isolating your active task. Move distractions to a background
+                        window until you're done.</p>
                 </div>
                 <div class="feature-card">
                     <strong>📝 Integrated Tab Notes</strong>
-                    <p>Attach quick thoughts or tasks directly to any website. Your notes reappear automatically whenever you revisit the page.</p>
+                    <p>Attach quick thoughts or tasks directly to any website. Your notes reappear automatically
+                        whenever you revisit the page.</p>
                 </div>
                 <div class="feature-card">
                     <strong>🧘 Wellness Alarms</strong>
-                    <p>Stay healthy with non-intrusive reminders for water, stretching, and eye breaks. Your productivity depends on your health.</p>
+                    <p>Stay healthy with non-intrusive reminders for water, stretching, and eye breaks. Your
+                        productivity depends on your health.</p>
                 </div>
                 <div class="feature-card">
                     <strong>🔒 Private by Design</strong>
-                    <p>Everything is stored locally on your device. We never collect or see your browsing data or notes.</p>
+                    <p>Everything is stored locally on your device. We never collect or see your browsing data or notes.
+                    </p>
                 </div>
             </div>
 
             <div class="download-section">
-                <a href="https://chromewebstore.google.com/detail/mindfultabs/pmcflooffhhhnphphbcabliellfkddmm" target="_blank" class="download-btn">
+                <a href="https://chromewebstore.google.com/detail/mindfultabs/pmcflooffhhhnphphbcabliellfkddmm"
+                    target="_blank" class="download-btn">
                     <img src="chrome.svg" alt="Chrome Logo">
                     <span class="btn-text">
                         <span class="btn-label">Get it for</span>
                         <span class="browser-name">Chrome Store</span>
                     </span>
                 </a>
-                <a href="https://addons.mozilla.org/en-US/firefox/addon/mindfultabs/" target="_blank" class="download-btn">
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/mindfultabs/" target="_blank"
+                    class="download-btn">
                     <img src="firefox.svg" alt="Firefox Logo">
                     <span class="btn-text">
                         <span class="btn-label">Install on</span>
@@ -370,4 +404,5 @@
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
+
 </html>
