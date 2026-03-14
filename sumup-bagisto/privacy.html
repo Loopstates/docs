@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - SumUp Bagisto | Loopstates Docs</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+        .container { max-width: 900px; margin: 0 auto; width: 100%; }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        header { text-align: center; margin-bottom: 3rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 2rem; }
+        h1 { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700; color: var(--text); }
+        h2 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--text); }
+        p { margin-bottom: 1rem; color: var(--text-muted); }
+        ul { margin-bottom: 1rem; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; color: var(--text-muted); }
+
+        .main-nav { margin-top: 3rem; padding: 1.25rem 2rem; border-top: 1px solid #e2e8f0; display: flex; justify-content: center; gap: 2rem; }
+        .nav-link { color: var(--text-muted); text-decoration: none; font-weight: 500; }
+        .nav-link:hover { color: var(--primary); }
+
+        footer { text-align: center; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid #e2e8f0; }
+        .footer-logo img { height: 32px; width: auto; }
+        .copyright { color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem; }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass-panel">
+            <header>
+                <h1>Privacy Policy</h1>
+                <p>Protection and handling of data for SumUp for Bagisto.</p>
+            </header>
+
+            <section>
+                <h2>Data Handling</h2>
+                <p>The SumUp Payment Gateway for Bagisto extension acts as a secure bridge between your Bagisto store and SumUp processing. We prioritize transaction security.</p>
+                <ul>
+                    <li><strong>Direct Processing:</strong> Transaction data is sent directly to SumUp. We do not store sensitive card details on your server.</li>
+                    <li><strong>Encryption:</strong> All communication between your server, the customer, and SumUp occurs over HTTPS.</li>
+                    <li><strong>Minimum Data:</strong> We only log essential transaction metadata for order synchronization and troubleshooting.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Third-Party Services</h2>
+                <p>Payments are processed via SumUp. By using this extension, you are subject to the SumUp Privacy Policy.</p>
+            </section>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">← Product Overview</a>
+                <a href="support.html" class="nav-link">Support & FAQ</a>
+                <a href="https://loopstates.com" class="nav-link">Loopstates Website</a>
+            </nav>
+        </div>
+        <footer>
+            <a href="https://loopstates.com" class="footer-logo">
+                <img src="../loopstates-logo.png" alt="Loopstates Logo">
+            </a>
+            <p class="copyright">&copy; <span id="year"></span> Loopstates. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>

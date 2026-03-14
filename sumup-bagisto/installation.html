@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation Guide - SumUp Bagisto | Loopstates Docs</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+        .container { max-width: 900px; margin: 0 auto; width: 100%; }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        header { margin-bottom: 3rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 2rem; }
+        h1 { font-family: 'Outfit', sans-serif; font-size: 2.25rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+        .subtitle { color: var(--text-muted); font-size: 1.1rem; }
+
+        .badge { display: inline-block; background: #e8f4fd; color: #0077cc; font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; margin-bottom: 1.5rem; }
+
+        .step { position: relative; padding-left: 4rem; margin-bottom: 3rem; }
+        .step-number { position: absolute; left: 0; top: 0; width: 2.5rem; height: 2.5rem; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: 'Outfit', sans-serif; }
+        .step h2 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; margin-bottom: 1rem; color: var(--text); }
+        
+        pre { background: #0f172a; color: #a8ff78; padding: 1.5rem; border-radius: 16px; overflow-x: auto; margin: 1rem 0; font-family: 'Fira Code', monospace; font-size: 0.9rem; }
+        code { font-family: 'Fira Code', monospace; background: #e2e8f0; color: #ef4444; padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+        pre code { background: transparent; color: inherit; padding: 0; }
+
+        .note { background: #fffbea; border-left: 4px solid #f59e0b; padding: 1rem 1.25rem; border-radius: 0 12px 12px 0; font-size: 0.95rem; color: #555; margin: 1.5rem 0; }
+
+        .main-nav { margin-top: 4rem; padding: 1.25rem 2rem; border-top: 1px solid #e2e8f0; display: flex; justify-content: center; gap: 2rem; }
+        .nav-link { color: var(--text-muted); text-decoration: none; font-weight: 500; }
+        .nav-link:hover { color: var(--primary); }
+
+        footer { text-align: center; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid #e2e8f0; }
+        .footer-logo img { height: 32px; width: auto; }
+        .copyright { color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem; }
+
+        @media (max-width: 640px) {
+            .glass-panel { padding: 2rem 1.5rem; }
+            .step { padding-left: 0; padding-top: 3.5rem; }
+            .step-number { top: 0; left: 0; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass-panel">
+            <header>
+                <span class="badge">Bagisto 2.x · PHP 8.1+</span>
+                <h1>Installation Guide</h1>
+                <p class="subtitle">Set up the SumUp Payment Gateway in your store in minutes.</p>
+            </header>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <h2>Place the Package</h2>
+                <p>Extract the module and copy the <code>SumUp</code> folder into your Bagisto project directory:</p>
+                <pre><code>your-bagisto-root/
+└── packages/
+    └── SumUp/
+        └── Payment/
+            ├── composer.json
+            └── src/</code></pre>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h2>Register Autoloader</h2>
+                <p>Open your root <code>composer.json</code> and add the namespace to <code>autoload.psr-4</code>:</p>
+                <pre><code>"autoload": {
+    "psr-4": {
+        "SumUp\\Payment\\": "packages/SumUp/Payment/src/"
+    }
+}</code></pre>
+                <div class="note">If other packages exist, just add this as a new entry in the object.</div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h2>Dump Autoload</h2>
+                <p>Regenerate the Composer autoloader to register the and discover the new classes:</p>
+                <pre><code>composer dump-autoload</code></pre>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h2>Clear Cache</h2>
+                <p>Ensure the configuration and route cache are refreshed:</p>
+                <pre><code>php artisan optimize:clear</code></pre>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <h2>Publish Assets</h2>
+                <p>Publish the SumUp logo and frontend resources to the public folder:</p>
+                <pre><code>php artisan vendor:publish --tag=sumup-assets</code></pre>
+            </div>
+
+            <div class="step">
+                <div class="step-number">6</div>
+                <h2>Admin Setup</h2>
+                <p>Navigate to <strong>Configuration → Sales → Payment Methods → SumUp</strong> and enter your credentials.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">7</div>
+                <h2>Webhook Configuration</h2>
+                <p>In your SumUp Dashboard, add a webhook pointing to your store's notification URL:</p>
+                <pre><code>https://your-store.com/sumup/webhook</code></pre>
+                <p style="margin-top:0.5rem">Subscribe to <code>checkout.status.paid</code> and <code>checkout.status.failed</code>.</p>
+            </div>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">← Product Overview</a>
+                <a href="user-guide.html" class="nav-link">User Guide</a>
+                <a href="support.html" class="nav-link">Support & FAQ</a>
+            </nav>
+        </div>
+
+        <footer>
+            <a href="https://loopstates.com" class="footer-logo">
+                <img src="../loopstates-logo.png" alt="Loopstates Logo">
+            </a>
+            <p class="copyright">&copy; <span id="year"></span> Loopstates. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>

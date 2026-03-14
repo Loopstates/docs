@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SumUp Payment for Bagisto - Loopstates Docs</title>
+    <meta name="description"
+        content="Official SumUp Payment Gateway for Bagisto 2.x. Secure inline payments, real-time webhooks, and seamless refund management.">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(37, 99, 235, 0.03) 0%, transparent 40%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1rem;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; width: 100%; }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        header { text-align: center; margin-bottom: 3rem; }
+        .logo-area { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .logo-img { height: 48px; width: auto; }
+        h1 { font-family: 'Outfit', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+        .hero-text { font-size: 1.125rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 2rem; }
+
+        h2 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; margin: 2.5rem 0 1.5rem; text-align: center; }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: #fff;
+            box-shadow: var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .feature-card strong {
+            display: block;
+            color: var(--primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p { font-size: 0.95rem; color: var(--text-muted); }
+
+        /* Guide Links */
+        .guide-section {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .guide-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .guide-btn:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 20px -8px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-text { display: flex; flex-direction: column; text-align: left; }
+        .btn-label { font-size: 0.75rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .guide-name { font-size: 1.1rem; font-family: 'Outfit', sans-serif; }
+
+        /* Navigation */
+        .main-nav {
+            margin-top: 3rem;
+            padding: 1.25rem 2rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover { color: var(--primary); }
+        .nav-link.back { color: var(--primary); font-weight: 600; }
+
+        footer { text-align: center; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid #e2e8f0; }
+        .footer-logo { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; margin-bottom: 1.5rem; }
+        .footer-logo img { height: 32px; width: auto; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--primary); }
+        .copyright { color: var(--text-muted); font-size: 0.85rem; }
+
+        @media (max-width: 640px) {
+            .glass-panel { padding: 2rem 1.5rem; }
+            h1 { font-size: 2rem; }
+            .guide-btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass-panel">
+            <header>
+                <div class="logo-area">
+                    <img src="logo.svg" alt="SumUp Logo" class="logo-img">
+                    <h1>SumUp for Bagisto</h1>
+                </div>
+                <p class="hero-text">Process card payments securely with the official SumUp inline checkout widget for Bagisto 2.x stores. No redirects, just seamless transactions.</p>
+            </header>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <strong>💳 Inline Checkout Widget</strong>
+                    <p>Customers pay directly on your store using SumUp's official JS SDK. High-conversion, frictionless experience.</p>
+                </div>
+                <div class="feature-card">
+                    <strong>🔄 Easy Refunds</strong>
+                    <p>Initiate full or partial refunds directly from the Bagisto Admin Order view. Integrated with SumUp Refund API.</p>
+                </div>
+                <div class="feature-card">
+                    <strong>🛠️ Developer Friendly</strong>
+                    <p>Supports Sandbox and Production environments with separate API key configuration for safe testing.</p>
+                </div>
+            </div>
+
+            <div class="guide-section">
+                <a href="installation.html" class="guide-btn">
+                    <span class="btn-text">
+                        <span class="btn-label">Step-by-Step</span>
+                        <span class="guide-name">Installation Guide</span>
+                    </span>
+                </a>
+                <a href="user-guide.html" class="guide-btn">
+                    <span class="btn-text">
+                        <span class="btn-label">Configuration & Flow</span>
+                        <span class="guide-name">User Guide</span>
+                    </span>
+                </a>
+            </div>
+
+            <nav class="main-nav">
+                <a href="../index.html" class="nav-link back">← All Products</a>
+                <a href="support.html" class="nav-link">Support & FAQ</a>
+                <a href="privacy.html" class="nav-link">Privacy Policy</a>
+            </nav>
+        </div>
+
+        <footer>
+            <a href="https://loopstates.com" class="footer-logo">
+                <img src="../loopstates-logo.png" alt="Loopstates Logo">
+            </a>
+            <div class="footer-links">
+                <a href="support.html">Support</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="mailto:support@loopstates.com">Contact</a>
+            </div>
+            <p class="copyright">&copy; <span id="year"></span> Loopstates. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>

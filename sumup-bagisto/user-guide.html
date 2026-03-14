@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide - SumUp Bagisto | Loopstates Docs</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+        .container { max-width: 900px; margin: 0 auto; width: 100%; }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        header { margin-bottom: 3rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 2rem; }
+        h1 { font-family: 'Outfit', sans-serif; font-size: 2.25rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+        .subtitle { color: var(--text-muted); font-size: 1.1rem; }
+
+        section { margin-bottom: 3.5rem; }
+        h2 { font-family: 'Outfit', sans-serif; font-size: 1.6rem; margin-bottom: 1.5rem; border-left: 4px solid var(--primary); padding-left: 1rem; }
+        h3 { font-family: 'Outfit', sans-serif; font-size: 1.2rem; margin: 1.5rem 0 0.75rem; color: var(--text); }
+        p { margin-bottom: 1.25rem; color: var(--text-muted); }
+
+        .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .card h4 { font-family: 'Outfit', sans-serif; margin-bottom: 0.5rem; color: var(--primary); }
+
+        table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: #f1f5f9; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--text); }
+        td { font-size: 0.9rem; color: var(--text-muted); }
+
+        .note { background: #fffbea; border-left: 4px solid #f59e0b; padding: 1rem 1.25rem; border-radius: 0 12px 12px 0; font-size: 0.95rem; color: #555; }
+        
+        pre { background: #0f172a; color: #a8ff78; padding: 1.25rem; border-radius: 12px; overflow-x: auto; margin: 1rem 0; font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+
+        .main-nav { margin-top: 4rem; padding: 1.25rem 2rem; border-top: 1px solid #e2e8f0; display: flex; justify-content: center; gap: 2rem; }
+        .nav-link { color: var(--text-muted); text-decoration: none; font-weight: 500; }
+        .nav-link:hover { color: var(--primary); }
+
+        footer { text-align: center; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid #e2e8f0; }
+        .footer-logo img { height: 32px; width: auto; }
+        .copyright { color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem; }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass-panel">
+            <header>
+                <h1>User Guide</h1>
+                <p class="subtitle">Complete configuration and payment management for SumUp on Bagisto.</p>
+            </header>
+
+            <section id="config">
+                <h2>Admin Configuration</h2>
+                <p>Navigate to <strong>Admin Panel → Configuration → Sales → Payment Methods → SumUp</strong></p>
+                <table>
+                    <thead>
+                        <tr><th>Field</th><th>Description</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Active</strong></td><td>Enable or disable the payment method globally.</td></tr>
+                        <tr><td><strong>Environment</strong></td><td>Choose <em>Sandbox</em> for testing or <em>Production</em> for live sales.</td></tr>
+                        <tr><td><strong>API Key (Sandbox/Prod)</strong></td><td>Your unique API key from the SumUp Developer Dashboard.</td></tr>
+                        <tr><td><strong>Merchant Code (Sandbox/Prod)</strong></td><td>Your SumUp Merchant ID or Profile ID.</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="checkout-flow">
+                <h2>Checkout Flow</h2>
+                <div class="card">
+                    <h4>1. Selection</h4>
+                    <p>The customer selects <strong>SumUp Payment</strong> as their preferred method on the Bagisto checkout page.</p>
+                </div>
+                <div class="card">
+                    <h4>2. Secure Inline Widget</h4>
+                    <p>Instead of a redirect, the secure SumUp widget loads directly. Card details are entered safely within the host environment.</p>
+                </div>
+                <div class="card">
+                    <h4>3. Complete & Invoice</h4>
+                    <p>On success, the order is confirmed, and an invoice is generated automatically. The order status moves to <em>Processing</em>.</p>
+                </div>
+            </section>
+
+            <section id="webhooks">
+                <h2>Webhook Setup</h2>
+                <p>Webhooks ensure payment status consistency even if the user closes their browser prematurely.</p>
+                <pre><code>URL: https://your-domain.com/sumup/webhook
+Required Events: checkout.status.paid, checkout.status.failed</code></pre>
+            </section>
+
+            <section id="refunds">
+                <h2>Refund Management</h2>
+                <p>Manage returns directly from your store's backend without logging into SumUp.</p>
+                <div class="card">
+                    <p>Go to <strong>Sales → Orders</strong>, open the desired order, and click <strong>Refund</strong>. Enter the amount to process a full or partial refund. The extension communicates instantly with the SumUp API.</p>
+                </div>
+                <div class="note">Refunds require a valid stored Transaction ID from the original payment.</div>
+            </section>
+
+            <section id="testing">
+                <h2>Testing (Sandbox)</h2>
+                <p>To verify your integration before going live:</p>
+                <ul>
+                    <li>Set Environment to <strong>Sandbox</strong>.</li>
+                    <li>Use <strong>Sandbox API Keys</strong>.</li>
+                    <li>Use SumUp's test card numbers from the SumUp Sandbox documentation.</li>
+                </ul>
+            </section>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">← Product Overview</a>
+                <a href="installation.html" class="nav-link">Installation Guide</a>
+                <a href="support.html" class="nav-link">Support & FAQ</a>
+            </nav>
+        </div>
+
+        <footer>
+            <a href="https://loopstates.com" class="footer-logo">
+                <img src="../loopstates-logo.png" alt="Loopstates Logo">
+            </a>
+            <p class="copyright">&copy; <span id="year"></span> Loopstates. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>

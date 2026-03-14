@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & FAQ - SumUp Bagisto | Loopstates Docs</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+        .container { max-width: 900px; margin: 0 auto; width: 100%; }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        header { text-align: center; margin-bottom: 3rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 2rem; }
+        h1 { font-family: 'Outfit', sans-serif; font-size: 2.25rem; font-weight: 700; color: var(--text); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
+        .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease; }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+        .icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+        .card h2 { font-family: 'Outfit', sans-serif; font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--text); }
+        .card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .btn-link { display: inline-block; background: var(--primary); color: #fff; padding: 0.6rem 1.25rem; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        .btn-link:hover { background: #1d4ed8; }
+
+        .faq { margin-top: 4rem; }
+        .faq h2 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; margin-bottom: 2rem; text-align: center; }
+        .faq-item { background: rgba(255, 255, 255, 0.5); border: 1px solid var(--glass-border); border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; }
+        .faq-item h3 { font-family: 'Outfit', sans-serif; font-size: 1rem; margin-bottom: 0.5rem; color: var(--text); display: flex; align-items: center; gap: 0.75rem; }
+        .faq-item p { font-size: 0.9rem; color: var(--text-muted); }
+
+        .main-nav { margin-top: 4rem; padding: 1.25rem 2rem; border-top: 1px solid #e2e8f0; display: flex; justify-content: center; gap: 2rem; }
+        .nav-link { color: var(--text-muted); text-decoration: none; font-weight: 500; }
+        footer { text-align: center; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid #e2e8f0; }
+        .footer-logo img { height: 32px; width: auto; }
+        .copyright { color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem; }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass-panel">
+            <header>
+                <h1>Support & FAQ</h1>
+                <p>Everything you need to get the most out of SumUp and Bagisto.</p>
+            </header>
+
+            <div class="grid">
+                <div class="card">
+                    <span class="icon">✉️</span>
+                    <h2>Email Support</h2>
+                    <p>Configuration help, bugs, or general questions. We respond within 1 business day.</p>
+                    <a href="mailto:support@loopstates.com" class="btn-link">support@loopstates.com</a>
+                </div>
+                <div class="card">
+                    <span class="icon">📖</span>
+                    <h2>Installation</h2>
+                    <p>Step-by-step technical guide for setting up the package on your server.</p>
+                    <a href="installation.html" class="btn-link">View Guide</a>
+                </div>
+                <div class="card">
+                    <span class="icon">⚙️</span>
+                    <h2>User Guide</h2>
+                    <p>Advanced details on checkout flows, webhooks, and refund management.</p>
+                    <a href="user-guide.html" class="btn-link">View Guide</a>
+                </div>
+            </div>
+
+            <div class="faq">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3><span>❓</span> The SumUp widget does not appear.</h3>
+                    <p>Ensure you have published the assets using <code>php artisan vendor:publish --tag=sumup-assets</code> and verify your API keys are correct for the active environment.</p>
+                </div>
+                <div class="faq-item">
+                    <h3><span>🚫</span> Orders are not being created after payment.</h3>
+                    <p>Check if your return URL is reachable and that the cart session hasn't expired. Verify your store's session configuration.</p>
+                </div>
+                <div class="faq-item">
+                    <h3><span>🔄</span> Does it support partial refunds?</h3>
+                    <p>Yes, you can initiate both full and partial refunds directly from the Bagisto admin order view.</p>
+                </div>
+            </div>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">← Product Overview</a>
+                <a href="privacy.html" class="nav-link">Privacy Policy</a>
+                <a href="https://loopstates.com" class="nav-link">Main Website</a>
+            </nav>
+        </div>
+
+        <footer>
+            <a href="https://loopstates.com" class="footer-logo">
+                <img src="../loopstates-logo.png" alt="Loopstates Logo">
+            </a>
+            <p class="copyright">&copy; <span id="year"></span> Loopstates. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
