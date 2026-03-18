@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Authority Privacy Policy - Your Data, Your Control | Loopstates</title>
+    <meta name="description"
+        content="Understand how Web Authority, the browser extension by Loopstates, handles your data. All page analysis is performed locally — no page content is ever collected or transmitted.">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-hover: #059669;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 40%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1rem;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; width: 100%; }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 2rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-img { height: 48px; width: auto; border-radius: 12px; }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .last-updated { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; }
+
+        section { margin-bottom: 2.5rem; }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        p { margin-bottom: 1rem; color: var(--text-muted); }
+        p strong { color: var(--text); }
+
+        ul { list-style: none; margin-bottom: 1rem; }
+
+        li {
+            padding: 0.875rem 1.1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            margin-bottom: 0.6rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+
+        li strong {
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .highlight-box {
+            background: rgba(16, 185, 129, 0.06);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #065f46;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .warning-box {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #78350f;
+            font-size: 0.95rem;
+        }
+
+        .warning-box strong { color: #92400e; }
+
+        .main-nav {
+            margin-top: 3rem;
+            padding: 1.25rem 2rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            line-height: normal;
+        }
+
+        .nav-link:hover { color: var(--primary); }
+
+        footer {
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .footer-logo:hover { opacity: 0.8; }
+        .footer-logo img { height: 32px; width: auto; }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--primary); }
+        .copyright { color: var(--text-muted); font-size: 0.85rem; }
+
+        a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        a:hover { color: var(--primary-hover); }
+
+        @media (max-width: 640px) {
+            .glass-panel { padding: 2rem 1.5rem; }
+            h1 { font-size: 1.75rem; }
+            .main-nav { gap: 1rem; }
+            .footer-links { gap: 1rem; flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass-panel">
+            <header>
+                <div class="logo-area">
+                    <img src="logo.png" alt="Web Authority Logo" class="logo-img">
+                    <h1>Privacy Policy</h1>
+                </div>
+                <p class="last-updated">Last Updated: March 18, 2026</p>
+            </header>
+
+            <section>
+                <div class="highlight-box">
+                    <span>✅</span>
+                    <span><strong>Short version:</strong> Web Authority performs all page inspection locally in your browser. We do not collect your browsing data, page content, or any personal information. The only external connection the extension makes is to Freemius, a licensing platform we use for paid plan management — explained in full below.</span>
+                </div>
+                <p>Loopstates ("we", "us", "our") built Web Authority as a browser extension for SEO professionals, developers, and marketers. This policy explains exactly what data the extension accesses, what it sends externally (if anything), and why each browser permission is required.</p>
+            </section>
+
+            <!-- ===================== DATA COLLECTION ===================== -->
+            <section>
+                <h2><span>🗂️</span> What Data We Collect</h2>
+                <p><strong>We do not collect, store, or transmit any page content, URLs, or browsing history.</strong> All SEO analysis (metadata, links, images, headings, schema, Core Web Vitals, etc.) is performed locally inside your browser. The results are displayed only to you and are never sent to Loopstates or any third party.</p>
+                <p>The only user data that may be processed externally is related to <strong>licensing</strong>, detailed in the Third-Party Services section below.</p>
+            </section>
+
+            <!-- ===================== PERMISSIONS ===================== -->
+            <section>
+                <h2><span>🔑</span> Permissions — What We Use & Why</h2>
+                <p>The following permissions are declared in the extension's manifest. Each is required for a specific feature:</p>
+                <ul>
+                    <li>
+                        <strong>"activeTab"</strong>
+                        Grants access to the tab you are currently viewing, but only when you click the extension icon. Used to read the active page's HTML, links, images, and metadata for on-demand analysis. Access ends the moment you close the popup. We never access background tabs. <em>Applies identically on Chrome and Firefox.</em>
+                    </li>
+                    <li>
+                        <strong>"scripting"</strong>
+                        Allows the extension to inject a local analysis script into the active page. This script reads the page's DOM to extract SEO signals (headings, canonical tags, schema markup, etc.) and passes results back to the popup. Nothing is sent externally.
+                    </li>
+                    <li>
+                        <strong>"webRequest"</strong>
+                        Used to read HTTP response headers of the active page (e.g., status codes, redirect chains, security headers like HSTS, Content-Security-Policy, X-Frame-Options). This is read-only — no requests are modified or intercepted.
+                    </li>
+                    <li>
+                        <strong>"storage"</strong>
+                        Saves your extension preferences and settings (e.g., UI theme, panel state) locally on your device using the browser's built-in storage API. This data never leaves your machine.
+                    </li>
+                    <li>
+                        <strong>"alarms"</strong>
+                        Used internally by the extension runtime to schedule deferred background tasks (e.g., cache clearing, license status refresh). Not used to trigger notifications or interact with the page. <em>On Chrome, the background process runs as a Service Worker; on Firefox, it runs as a persistent background script. Both behave identically from a privacy standpoint.</em>
+                    </li>
+                    <li>
+                        <strong>Host permissions: "http://*/*" and "https://*/*"</strong>
+                        Required so the content script can run on any domain you choose to inspect. Without broad host permissions, the analysis script could not execute on arbitrary websites. This permission is <em>not</em> used to track your browsing or access sites you haven't explicitly opened the extension on.
+                    </li>
+                    <li>
+                        <strong>Host permission: "https://api.freemius.com/*"</strong>
+                        Required exclusively to communicate with the Freemius licensing API for paid plan verification. See the Third-Party Services section for full details on what Freemius receives.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ===================== THIRD-PARTY ===================== -->
+            <section>
+                <h2><span>🔌</span> Third-Party Services</h2>
+
+                <div class="warning-box">
+                    <strong>Freemius (Licensing Platform)</strong><br>
+                    Web Authority uses <a href="https://freemius.com" target="_blank">Freemius</a> as its licensing and subscription management platform for paid plan features. When you activate or verify a license key, the extension communicates with <code>api.freemius.com</code>. Freemius may receive your license key, email address (if provided during purchase), and basic device fingerprint information to validate your entitlement. This communication is encrypted over HTTPS. Freemius has its own privacy policy, available at <a href="https://freemius.com/privacy/" target="_blank">freemius.com/privacy</a>. The free tier of Web Authority does not initiate any Freemius API calls.
+                </div>
+
+                <p>Beyond Freemius, the extension may fetch publicly accessible files on the site you are inspecting — for example, <code>robots.txt</code>, <code>sitemap.xml</code>, or <code>llms.txt</code> — as part of specific audit checks. These are standard HTTP requests to the same domain you are already visiting and do not include any personal information.</p>
+                <p>We do not use Google Analytics, Facebook Pixel, Sentry, Amplitude, or any other analytics, error tracking, or advertising SDK.</p>
+            </section>
+
+            <!-- ===================== DATA RETENTION ===================== -->
+            <section>
+                <h2><span>💾</span> Data Retention & Storage</h2>
+                <p>All data stored by the extension (your preferences and settings) lives in your browser's local extension storage on your own device. You can delete this data at any time by uninstalling the extension or clearing extension data via your browser's settings. We have no copy of it.</p>
+                <p>Audit results are ephemeral — they are computed on demand each time you open the popup and are not persisted anywhere.</p>
+            </section>
+
+            <!-- ===================== CHILDREN ===================== -->
+            <section>
+                <h2><span>👤</span> Children's Privacy</h2>
+                <p>Web Authority is a professional tool not directed at children under the age of 13. We do not knowingly collect any personal information from children. If you believe a child has used this service, please contact us immediately.</p>
+            </section>
+
+            <!-- ===================== CHANGES ===================== -->
+            <section>
+                <h2><span>🔄</span> Changes to This Policy</h2>
+                <p>We may update this Privacy Policy when the extension's features or third-party integrations change. Significant updates will be noted by revising the "Last Updated" date at the top of this page. Continued use of Web Authority after changes are published constitutes acceptance of the updated policy.</p>
+            </section>
+
+            <!-- ===================== CONTACT ===================== -->
+            <section>
+                <h2><span>🤝</span> Contact Us</h2>
+                <p>If you have questions, concerns, or requests regarding this Privacy Policy or your data, please contact us at <a href="mailto:support@loopstates.com">support@loopstates.com</a>.</p>
+            </section>
+
+            <nav class="main-nav">
+                <a href="../index.html" class="nav-link">← All Products</a>
+                <a href="index.html" class="nav-link">Web Authority Home</a>
+                <a href="support.html" class="nav-link">Support & FAQ</a>
+            </nav>
+        </div>
+
+        <footer>
+            <a href="https://loopstates.com" class="footer-logo">
+                <img src="../loopstates-logo.png" alt="Loopstates Logo">
+            </a>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="support.html">Support</a>
+                <a href="mailto:support@loopstates.com">Contact</a>
+            </div>
+            <p class="copyright">&copy; <span id="currentYear"></span> Loopstates. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

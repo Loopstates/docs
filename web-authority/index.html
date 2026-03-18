@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Authority - SEO Analyzer & Page Intelligence Tool</title>
+    <meta name="description"
+        content="Web Authority is a powerful browser extension for SEO professionals, developers, and marketers. Instantly analyze page metadata, heading structure, links, images, schema, and Core Web Vitals — all locally, without sending your data anywhere.">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-hover: #059669;
+            --primary-soft: rgba(16, 185, 129, 0.08);
+            --primary-glow: rgba(16, 185, 129, 0.15);
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.04) 0%, transparent 40%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo-img {
+            height: 56px;
+            width: auto;
+            border-radius: 14px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-text {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 2rem;
+        }
+
+        .badge-row {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            background: var(--primary-soft);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-hover);
+            letter-spacing: 0.01em;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1.5rem;
+            text-align: center;
+        }
+
+        /* USP Section */
+        .usp-section {
+            margin: 0 0 3rem;
+        }
+
+        .usp-label {
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .usp-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 1.75rem 1.65rem;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .usp-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 30px -8px rgba(16, 185, 129, 0.12);
+        }
+
+        .usp-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), #34d399);
+        }
+
+        .usp-card.pro::before {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+        }
+
+        .usp-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .usp-card.pro .usp-num { color: #d97706; }
+
+        .usp-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.6rem;
+            line-height: 1.35;
+        }
+
+        .usp-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .pro-badge {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #92400e;
+            letter-spacing: 0.02em;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            background: #fff;
+            box-shadow: var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .feature-card .icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .feature-card strong {
+            display: block;
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* Download Buttons */
+        .download-section {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 20px -8px var(--primary-glow);
+        }
+
+        .download-btn img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .btn-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .btn-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .browser-name {
+            font-size: 1.1rem;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Navigation */
+        .main-nav {
+            margin-top: 3rem;
+            padding: 1.25rem 2rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            line-height: normal;
+        }
+
+        .nav-link:hover { color: var(--primary); }
+        .nav-link.back { color: var(--primary); font-weight: 600; }
+
+        /* Footer */
+        footer {
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .footer-logo:hover { opacity: 0.8; }
+        .footer-logo img { height: 32px; width: auto; }
+
+        .footer-logo span {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--text);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--primary); }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 640px) {
+            .glass-panel { padding: 2rem 1.5rem; }
+            h1 { font-size: 2rem; }
+            .hero-text { font-size: 1rem; }
+            .download-btn { width: 100%; justify-content: center; }
+            .features-grid { grid-template-columns: 1fr; }
+            .main-nav { gap: 1rem; }
+            .footer-links { gap: 1rem; flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass-panel">
+            <header>
+                <div class="logo-area">
+                    <img src="logo.png" alt="Web Authority Logo" class="logo-img">
+                    <h1>Web Authority</h1>
+                </div>
+                <p class="hero-text">A professional-grade SEO analyzer and page intelligence tool for your browser.
+                    Instantly audit any webpage's metadata, structure, links, performance, and AI readiness — all
+                    locally, with no data ever leaving your browser.</p>
+                <div class="badge-row">
+                    <span class="badge">🔒 100% Local Analysis</span>
+                    <span class="badge">⚡ Instant Results</span>
+                    <span class="badge">🤖 AI-Ready</span>
+                </div>
+            </header>
+
+            <!-- USP SECTION -->
+            <div class="usp-section">
+                <p class="usp-label">Why Web Authority</p>
+                <div class="usp-grid">
+
+                    <div class="usp-card">
+                        <span class="usp-num">01 — Report</span>
+                        <h3>Full audit report, ready to share in one click</h3>
+                        <p>Stop copying data into spreadsheets. Hit Export and get a clean, shareable PDF report covering every SEO signal on the page — send it to your client or team in seconds, not hours.</p>
+                    </div>
+
+                    <div class="usp-card pro">
+                        <span class="usp-num">02 — Pro</span>
+                        <h3>Turn hours of research into minutes</h3>
+                        <p>A senior SEO audit can take 3–5 hours manually. Web Authority Pro does it instantly — metadata, links, images, schema, performance, crawlability, all in one panel. The Pro upgrade pays for itself the first time you use it.</p>
+                        <span class="pro-badge">✨ Available in Pro</span>
+                    </div>
+
+                    <div class="usp-card">
+                        <span class="usp-num">03 — Coverage</span>
+                        <h3>The only extension with 360° SEO coverage</h3>
+                        <p>Most tools cover one thing well. Web Authority covers all 12 — on-page SEO, technical health, structured data, social previews, Core Web Vitals, crawl signals, and even AI/LLM readiness. One extension, zero blind spots.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <h2>12 Powerful Inspection Modules</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="icon">🔍</span>
+                    <strong>SEO Metadata & SERP Preview</strong>
+                    <p>Inspect title, meta description, canonical tags, and robots directives. Live SERP snippet
+                        previews for both desktop and mobile truncation.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">🏗️</span>
+                    <strong>Heading Structure Analysis</strong>
+                    <p>Visualize your full H1–H6 hierarchy, catch multiple H1s, detect skipped heading levels, and
+                        export the complete heading list.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">🛡️</span>
+                    <strong>Page Status & Security</strong>
+                    <p>Detect HTTP status codes, redirect chains, mixed content, and validate SSL certificates,
+                        TLS protocols, and security headers like HSTS and CSP.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">🔗</span>
+                    <strong>Link Analysis</strong>
+                    <p>Full audit of internal, external, nofollow, sponsored, and UGC links. Detect broken links,
+                        analyse anchor text diversity, and export any link list.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">🖼️</span>
+                    <strong>Image SEO Audit</strong>
+                    <p>Find images missing ALT text, detect oversized files, check lazy loading, and identify
+                        modern formats (WebP / AVIF). Export the full image report.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">📋</span>
+                    <strong>Structured Data (Schema)</strong>
+                    <p>Detect JSON-LD and Microdata, identify schema types, receive validation warnings, and check
+                        rich result eligibility at a glance.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">📣</span>
+                    <strong>Social Metadata Validation</strong>
+                    <p>Preview how your page looks when shared on Facebook, LinkedIn, and X/Twitter. Validate
+                        OpenGraph completeness and social image dimensions.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">⚡</span>
+                    <strong>Core Web Vitals & Performance</strong>
+                    <p>View LCP, INP, and CLS scores with threshold warnings. Get resource loading signals to
+                        pinpoint what's hurting your page speed.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">🕷️</span>
+                    <strong>Crawl & Indexing Diagnostics</strong>
+                    <p>Access and interpret robots.txt rules, auto-discover sitemaps, and verify crawl directives
+                        and indexability — all without leaving the extension popup.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">🤖</span>
+                    <strong>AI & LLM Readiness</strong>
+                    <p>Detect and validate <code>llms.txt</code>, check AI crawler accessibility, and preview how
+                        AI agents will extract content from your page.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">📤</span>
+                    <strong>Export & Reporting</strong>
+                    <p>Export headings, link lists, image data, page text, or a full SEO audit report as PDF — all
+                        with a single click, directly from the popup.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">🧰</span>
+                    <strong>Technical SEO Toolkit</strong>
+                    <p>A holistic SEO checklist with prioritised issue flags, a content structure map, and a
+                        resource inspection panel for deep technical reviews.</p>
+                </div>
+            </div>
+
+            <div class="download-section">
+                <a href="#" target="_blank" class="download-btn" id="chrome-btn">
+                    <img src="../mindful-tabs/chrome.svg" alt="Chrome Logo">
+                    <span class="btn-text">
+                        <span class="btn-label">Get it for</span>
+                        <span class="browser-name">Chrome Store</span>
+                    </span>
+                </a>
+                <a href="#" target="_blank" class="download-btn" id="firefox-btn">
+                    <img src="../mindful-tabs/firefox.svg" alt="Firefox Logo">
+                    <span class="btn-text">
+                        <span class="btn-label">Install on</span>
+                        <span class="browser-name">Firefox Add-ons</span>
+                    </span>
+                </a>
+            </div>
+
+            <nav class="main-nav">
+                <a href="../index.html" class="nav-link back">← All Products</a>
+                <a href="support.html" class="nav-link">Support & FAQ</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+            </nav>
+        </div>
+
+        <footer>
+            <a href="https://loopstates.com" class="footer-logo">
+                <img src="../loopstates-logo.png" alt="Loopstates Logo">
+            </a>
+            <div class="footer-links">
+                <a href="support.html">Support</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="mailto:support@loopstates.com">Contact</a>
+            </div>
+            <p class="copyright">&copy; <span id="currentYear"></span> Loopstates. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

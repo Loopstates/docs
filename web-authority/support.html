@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Authority Support & FAQ - Get Help | Loopstates</title>
+    <meta name="description"
+        content="Find answers to common questions about Web Authority, the browser extension for SEO professionals and developers. Learn about features, permissions, data privacy, and how to run audits.">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-hover: #059669;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 40%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1rem;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; width: 100%; }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 2rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-img { height: 48px; width: auto; border-radius: 12px; }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle { color: var(--text-muted); font-size: 1.1rem; }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text);
+        }
+
+        .contact-card {
+            background: #fff;
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-card p { margin-bottom: 1.5rem; color: var(--text-muted); }
+
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .email-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+        }
+
+        .faq-grid { display: grid; gap: 1.25rem; }
+
+        .faq-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-card:hover {
+            background: #fff;
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .faq-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .faq-card p { color: var(--text-muted); font-size: 0.95rem; padding-left: 1.9rem; }
+
+        .main-nav {
+            margin-top: 3rem;
+            padding: 1.25rem 2rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            line-height: normal;
+        }
+
+        .nav-link:hover { color: var(--primary); }
+        .nav-link.active { color: var(--primary); font-weight: 600; }
+
+        footer {
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .footer-logo:hover { opacity: 0.8; }
+        .footer-logo img { height: 32px; width: auto; }
+
+        .footer-logo span {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--text);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--primary); }
+        .copyright { color: var(--text-muted); font-size: 0.85rem; }
+
+        @media (max-width: 640px) {
+            .glass-panel { padding: 2rem 1.5rem; }
+            h1 { font-size: 1.75rem; }
+            .main-nav { gap: 1rem; }
+            .footer-links { gap: 1rem; flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass-panel">
+            <header>
+                <div class="logo-area">
+                    <img src="logo.png" alt="Web Authority Logo" class="logo-img">
+                    <h1>Support & FAQ</h1>
+                </div>
+                <p class="subtitle">Everything you need to know about Web Authority</p>
+            </header>
+
+            <section>
+                <h2>Need direct help?</h2>
+                <div class="contact-card">
+                    <p>Have a question about a specific audit, found an unexpected result, or want to suggest a feature? Our team is here to help and typically responds within 24–48 hours.</p>
+                    <a href="mailto:support@loopstates.com" class="email-btn">
+                        <span>✉️</span> support@loopstates.com
+                    </a>
+                </div>
+            </section>
+
+            <section>
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-card">
+                        <h3><span>❓</span> What is Web Authority?</h3>
+                        <p>Web Authority is a browser extension for SEO professionals, developers, and marketers. It lets you instantly audit any webpage's metadata, heading structure, links, images, structured data, social card previews, Core Web Vitals, and AI readiness — all from a single popup panel.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3><span>🔒</span> Does it send my page data to any server?</h3>
+                        <p>No. Web Authority operates entirely on your local machine. All analysis is performed directly in your browser against the active page. We do not collect, store, or transmit any page content or browsing data to external servers.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3><span>🔍</span> How do I run an SEO audit on a page?</h3>
+                        <p>Navigate to any webpage and click the Web Authority icon in your browser toolbar. The extension will instantly analyse the page and display all findings grouped by category. No button presses or configuration required — it analyses on open.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3><span>🖼️</span> How does the SERP Preview work?</h3>
+                        <p>Web Authority extracts your page's title and meta description and renders a live simulation of how it would appear in Google Search results. It shows both desktop and mobile truncation so you can spot cutoff issues before they go live.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3><span>📤</span> What can I export?</h3>
+                        <p>You can export your page's headings, internal links, all links, image list, raw page text, and a full PDF SEO audit report — all with a single click from within the popup. Exports are saved directly to your device.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3><span>🤖</span> What is the AI & LLM Readiness check?</h3>
+                        <p>This module checks whether the current page or site has an <code>llms.txt</code> file and validates its contents. It also checks whether AI crawlers can access your page and previews what content an AI agent would extract, helping you optimise for LLM visibility.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3><span>⚡</span> Can it show Core Web Vitals without Google?</h3>
+                        <p>Yes. Web Authority reads real-time Core Web Vitals signals (LCP, INP, CLS) directly from the browser's Performance API on the active page. This gives you actual field conditions, not just lab estimates, and requires no third-party API calls.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3><span>🕷️</span> Why does it need &lt;all_urls&gt; permission?</h3>
+                        <p>Web Authority needs to inspect the active page from any domain you visit in order to perform its analysis. This permission is used solely to read the current page's DOM, headers, and resources. It is never used to track your browsing history or collect data.</p>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="main-nav">
+                <a href="../index.html" class="nav-link">← All Products</a>
+                <a href="index.html" class="nav-link">Web Authority Home</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+            </nav>
+        </div>
+
+        <footer>
+            <a href="https://loopstates.com" class="footer-logo">
+                <img src="../loopstates-logo.png" alt="Loopstates Logo">
+            </a>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="mailto:support@loopstates.com">Contact</a>
+            </div>
+            <p class="copyright">&copy; <span id="currentYear"></span> Loopstates. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

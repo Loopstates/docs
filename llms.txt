@@ -1,12 +1,12 @@
 # Loopstates Documentation Index
 
-This directory contains the official support documentation for Loopstates products. It is designed to help users and AI agents navigate our suite of productivity and search tools.
+This directory contains the official support documentation for Loopstates products, including browser extensions and Bagisto plugins. It is designed to help users and AI agents navigate our suite of productivity, search, payment, and SEO tools.
 
 ## Main Entry Point
 - [Home](index.html): Product selection landing page.
 
 ## MindfulTabs
-MindfulTabs is a browser extension designed to help you manage tabs effectively and reduce digital clutter.
+MindfulTabs is a browser extension designed to help you manage tabs effectively, stay focused, and reduce digital clutter. Available on Chrome and Firefox.
 - [Product Home](mindful-tabs/index.html)
 - [Support & FAQ](mindful-tabs/support.html)
 - [Privacy Policy](mindful-tabs/privacy-policy.html)
@@ -17,3 +17,17 @@ Swift Search provides lightning-fast, highly accurate search for WordPress sites
 - [Support & FAQ](swift-search-typesense/support.html)
 - [Privacy Policy](swift-search-typesense/privacy.html)
 - [Terms of Service](swift-search-typesense/terms.html)
+
+## SumUp for Bagisto
+SumUp for Bagisto is an official inline checkout payment integration for Bagisto 2.x stores, enabling card payments via the SumUp payment gateway.
+- [Product Home](sumup-bagisto/index.html)
+- [Installation Guide](sumup-bagisto/installation.html)
+- [User Guide](sumup-bagisto/user-guide.html)
+- [Support & FAQ](sumup-bagisto/support.html)
+- [Privacy Policy](sumup-bagisto/privacy.html)
+
+## Web Authority
+Web Authority is a professional SEO analyzer and page intelligence browser extension for Chrome and Firefox. It covers 12 inspection modules including metadata, headings, links, images, structured data, social previews, Core Web Vitals, crawl diagnostics, and AI/LLM readiness — all locally with no data sent externally.
+- [Product Home](web-authority/index.html)
+- [Support & FAQ](web-authority/support.html)
+- [Privacy Policy](web-authority/privacy-policy.html)
