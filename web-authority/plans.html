@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Authority Plans & Pricing - Upgrade to Pro | Loopstates</title>
+    <meta name="description"
+        content="Compare Web Authority Free and Pro plans. Unlock advanced SEO diagnostics, AI content extraction, redirect chain tracking, and professional PDF reporting.">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-hover: #059669;
+            --primary-soft: rgba(16, 185, 129, 0.08);
+            --primary-glow: rgba(16, 185, 129, 0.15);
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.04) 0%, transparent 40%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo-img {
+            height: 56px;
+            width: auto;
+            border-radius: 14px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-text {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .price-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -12px rgba(16, 185, 129, 0.1);
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--primary);
+            box-shadow: 0 15px 30px -10px var(--primary-glow);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tier-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .tier-price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .tier-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            min-height: 3rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+            flex: 1;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .feature-item svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feature-item.disabled {
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        .cta-btn {
+            display: block;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-btn.secondary {
+            background: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .cta-btn.primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .cta-btn:hover {
+            filter: brightness(0.95);
+            transform: scale(1.02);
+        }
+
+        .cta-btn.disabled {
+            background: #f1f5f9;
+            color: #94a3b8;
+            cursor: default;
+            pointer-events: none;
+            transform: none !important;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Comparison Table */
+        .comparison-section h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--text);
+            background: #fafafa;
+        }
+
+        .category-row {
+            background: #f8fafc;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+        }
+
+        .check-icon { color: var(--primary); font-weight: bold; }
+        .cross-icon { color: var(--text-muted); opacity: 0.5; }
+
+        /* Navigation */
+        .main-nav {
+            margin-top: 3rem;
+            padding: 1.25rem 2rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover { color: var(--primary); }
+        .nav-link.back { color: var(--primary); font-weight: 600; }
+
+        /* Footer */
+        footer {
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .footer-logo img { height: 32px; width: auto; margin-bottom: 1rem; }
+        .copyright { color: var(--text-muted); font-size: 0.85rem; }
+
+        @media (max-width: 640px) {
+            .glass-panel { padding: 2rem 1.5rem; }
+            h1 { font-size: 2rem; }
+            .pricing-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass-panel">
+            <header>
+                <div class="logo-area">
+                    <img src="logo.png" alt="Web Authority Logo" class="logo-img">
+                    <h1>Plans & Pricing</h1>
+                </div>
+                <p class="hero-text">Upgrade your workflow with Web Authority Pro. Professional-grade SEO tools for experts who value their time.</p>
+            </header>
+
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div id="card-free" class="price-card">
+                    <div class="tier-name">Free Tier</div>
+                    <div class="tier-price">$0<span>/lifetime</span></div>
+                    <p class="tier-desc">Essential tools for quick page checks and basic SEO inspection.</p>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            SEO Metadata & SERP Preview
+                        </li>
+                        <li class="feature-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            Heading Structure Map
+                        </li>
+                        <li class="feature-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            Core Web Vitals Check
+                        </li>
+                        <li class="feature-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            Internal/External Link Lists
+                        </li>
+                        <li class="feature-item disabled">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            Broken Link (404) Audit
+                        </li>
+                    </ul>
+                    <a id="cta-free" href="https://chromewebstore.google.com/detail/web-authority-seo-analyze/pcignnldbjlfnhjfpgfpahjjaclmbfme" class="cta-btn secondary">Download Free</a>
+                </div>
+
+                <!-- Pro Plan -->
+                <div id="card-pro" class="price-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="tier-name">Pro Plan</div>
+                    <div class="tier-price">$5<span>/month</span></div>
+                    <p class="tier-desc">Unlock 100% of Web Authority. Or save with <strong>$50/year</strong> (approx. $4.16/mo)</p>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--primary);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            <strong>Broken Link Audit (404 Finder)</strong>
+                        </li>
+                        <li class="feature-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--primary);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            <strong>Professional PDF Reports</strong>
+                        </li>
+                        <li class="feature-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--primary);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            <strong>AI "Clean View" & Clean Extraction</strong>
+                        </li>
+                        <li class="feature-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--primary);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            <strong>Redirect Chain Tracking</strong>
+                        </li>
+                        <li class="feature-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:var(--primary);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            <strong>Schema & Security Audit</strong>
+                        </li>
+                    </ul>
+                    <a id="cta-pro" href="https://checkout.freemius.com/?plugin_id=26029&public_key=pk_36c4e3897587b1f19e64716d49423&is_plugin=false" class="cta-btn primary">Get Pro Now</a>
+                </div>
+            </div>
+
+            <div class="comparison-section">
+                <h2>Full Feature Comparison</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Free</th>
+                                <th>Pro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="category-row"><td colspan="3">On-Page SEO</td></tr>
+                            <tr><td>Meta Tags (Title/Desc/Robots)</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
+                            <tr><td>SERP Preview (Desktop/Mobile)</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
+                            <tr><td>Heading Structure Map</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
+                            <tr><td>Word Count & Content Analysis</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
+                            
+                            <tr class="category-row"><td colspan="3">Technical SEO</td></tr>
+                            <tr><td>HTTP Status & TLS Check</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
+                            <tr><td>Redirect Chain Tracking</td><td class="cross-icon">✕</td><td class="check-icon">✓</td></tr>
+                            <tr><td>Security Header Audit (HSTS/CSP)</td><td class="cross-icon">✕</td><td class="check-icon">✓</td></tr>
+                            <tr><td>Core Web Vitals Dashboard</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
+
+                            <tr class="category-row"><td colspan="3">Link & Image Audit</td></tr>
+                            <tr><td>Internal/External Link Lists</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
+                            <tr><td>Automated Broken Link (404) Scan</td><td class="cross-icon">✕</td><td class="check-icon">✓</td></tr>
+                            <tr><td>Anchor Text Diversity Report</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
+                            <tr><td>Image ALT Tag Analysis</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
+
+                            <tr class="category-row"><td colspan="3">Intelligence & Reporting</td></tr>
+                            <tr><td>Schema (JSON-LD) Extraction</td><td class="cross-icon">✕</td><td class="check-icon">✓</td></tr>
+                            <tr><td>AI "Clean View" Preview</td><td class="cross-icon">✕</td><td class="check-icon">✓</td></tr>
+                            <tr><td>LLMS.TXT Validation</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
+                            <tr><td>Full SEO Audit PDF Export</td><td class="cross-icon">✕</td><td class="check-icon">✓</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <nav class="main-nav">
+                <a href="../index.html" class="nav-link">← All Products</a>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="support.html" class="nav-link">Support & FAQ</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+            </nav>
+        </div>
+
+        <footer>
+            <a href="https://loopstates.com" class="footer-logo">
+                <img src="../loopstates-logo.png" alt="Loopstates Logo">
+            </a>
+            <p class="copyright">&copy; 2026 Loopstates. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Referrer-based UI Logic & Browser Detection
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const ref = params.get('ref');
+            
+            const ctaFree = document.getElementById('cta-free');
+            const ctaPro = document.getElementById('cta-pro');
+
+            // Browser Detection for Free Download Link
+            const isFirefox = typeof InstallTrigger !== 'undefined' || navigator.userAgent.toLowerCase().includes('firefox');
+            const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+            
+            const chromeLink = "https://chromewebstore.google.com/detail/web-authority-seo-analyze/pcignnldbjlfnhjfpgfpahjjaclmbfme";
+            const firefoxLink = "https://addons.mozilla.org/en-US/firefox/addon/web-authority-seo-analyzer/";
+
+            if (ctaFree && !ctaFree.classList.contains('disabled')) {
+                if (isFirefox) {
+                    ctaFree.href = firefoxLink;
+                    ctaFree.innerText = "Install on Firefox";
+                } else {
+                    // Default to Chrome Store for Chrome and others
+                    ctaFree.href = chromeLink;
+                    ctaFree.innerText = "Get it for Chrome";
+                }
+            }
+            
+            if (ref === 'extension') {
+                // User is coming from the extension and is NOT Pro
+                ctaFree.innerText = "Current Plan";
+                ctaFree.classList.add('disabled');
+                ctaFree.removeAttribute('href');
+                
+                ctaPro.innerText = "Upgrade to Pro Now";
+            } else if (ref === 'extension_pro') {
+                // Pro user support
+                ctaPro.innerText = "Current Plan";
+                ctaPro.classList.add('disabled');
+                ctaPro.removeAttribute('href');
+                
+                ctaFree.innerText = "Free Tier active";
+                ctaFree.classList.add('disabled');
+            }
+        });
+    </script>
+</body>
+
+</html>
